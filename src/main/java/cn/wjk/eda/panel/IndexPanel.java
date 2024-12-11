@@ -3,6 +3,7 @@ package cn.wjk.eda.panel;
 import cn.wjk.eda.element.Element;
 import cn.wjk.eda.element.Line;
 import cn.wjk.eda.element.Rectangle;
+import cn.wjk.eda.element.Text;
 import cn.wjk.eda.enumration.ElementType;
 
 import javax.swing.*;
@@ -70,5 +71,14 @@ public class IndexPanel extends JPanel implements Runnable {
     private void createNewRectangle() {
         elements.add(new Rectangle(ElementType.RECTANGLE, Color.blue,
                 10, 10, 100, 100, true, Color.green));
+    }
+
+    private void createNewText() {
+        if (ElementLibraryPanel.content == null || ElementLibraryPanel.content.isBlank()) {
+            return;
+        }
+        elements.add(new Text(ElementType.TEXT, Color.black, 10, 10, ElementLibraryPanel.content,
+                new Font("Times New Roman", Font.PLAIN, 20)));
+        ElementLibraryPanel.content = null;
     }
 }

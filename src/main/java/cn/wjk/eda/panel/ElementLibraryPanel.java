@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Package: cn.wjk.eda.view.panel
@@ -23,12 +25,27 @@ import java.lang.reflect.Method;
 @SuppressWarnings("unused")
 public class ElementLibraryPanel extends JPanel implements Runnable, ActionListener {
     private ElementLibraryFrame elementLibraryFrame;
+    private final Map<ElementType, JTextField> fieldMap = new HashMap<>();
     public static ElementType elementType;
     public static boolean modified;
+    public static String content;
 
     public ElementLibraryPanel() {
         setLayout(null);
         initButtons();
+        initText();
+    }
+
+    private void initText() {
+        initTextText();
+    }
+
+    private void initTextText() {
+        JTextField jTextField = new JTextField(20);
+        jTextField.setEditable(true);
+        jTextField.setBounds(120, 90, 100, 30);
+        add(jTextField);
+        fieldMap.put(ElementType.TEXT, jTextField);
     }
 
     private void initButtons() {
@@ -85,5 +102,10 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
 
     private void handleRectangle() {
         elementType = ElementType.RECTANGLE;
+    }
+
+    private void handleText() {
+        elementType = ElementType.TEXT;
+        content = fieldMap.get(ElementType.TEXT).getText();
     }
 }

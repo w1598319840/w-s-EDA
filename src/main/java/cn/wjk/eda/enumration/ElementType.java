@@ -15,7 +15,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ElementType {
     LINE("Line"),
-    RECTANGLE("Rectangle");
+    RECTANGLE("Rectangle"),
+    TEXT("Text");
 
     private final String name;
 }
