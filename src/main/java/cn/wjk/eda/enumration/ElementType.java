@@ -14,9 +14,12 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ElementType {
-    LINE("Line"),
-    RECTANGLE("Rectangle"),
-    TEXT("Text");
+    LINE("Line", "线"),
+    RECTANGLE("Rectangle", "矩形"),
+    TEXT("Text", "文本"),
+    PIN("Pin", "引脚"),
+    RESISTANCE("Resistance", "电阻");
 
     private final String name;
+    private final String desc;
 }

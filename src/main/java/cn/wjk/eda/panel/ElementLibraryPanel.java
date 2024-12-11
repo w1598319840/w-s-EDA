@@ -52,6 +52,14 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
         initLineButton();
         initRectangleButton();
         initTextButton();
+        initResistanceButton();
+    }
+
+    private void initResistanceButton() {
+        JButton resistanceButton = new JButton("Resistance");
+        resistanceButton.setBounds(10, 130, 100, 30);
+        resistanceButton.addActionListener(this);
+        add(resistanceButton);
     }
 
     private void initTextButton() {
@@ -107,5 +115,9 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
     private void handleText() {
         elementType = ElementType.TEXT;
         content = fieldMap.get(ElementType.TEXT).getText();
+    }
+
+    private void handleResistance() {
+        elementType = ElementType.RESISTANCE;
     }
 }

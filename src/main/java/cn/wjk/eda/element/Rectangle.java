@@ -19,8 +19,8 @@ public class Rectangle extends Element {
     private final boolean frame;
     private final Color frameColor;
 
-    public Rectangle(ElementType type, Color color, int x, int y, int width, int height, boolean frame, Color frameColor) {
-        super(type, color, x, y);
+    public Rectangle(Color color, int x, int y, int width, int height, boolean frame, Color frameColor) {
+        super(ElementType.RECTANGLE, color, x, y);
         this.x = x;
         this.y = y;
         this.width = width;

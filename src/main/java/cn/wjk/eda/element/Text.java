@@ -19,8 +19,8 @@ public class Text extends Element {
     private final String text;
     private final Font font;
 
-    public Text(ElementType type, Color color, int x, int y, String text, Font font) {
-        super(type, color, x, y);
+    public Text(Color color, int x, int y, String text, Font font) {
+        super(ElementType.TEXT, color, x, y);
         this.text = text;
         this.font = font;
         this.x = x;

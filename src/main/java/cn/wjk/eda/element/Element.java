@@ -1,6 +1,7 @@
 package cn.wjk.eda.element;
 
 import cn.wjk.eda.enumration.ElementType;
+import cn.wjk.eda.utils.GlobalIdUtils;
 import lombok.Getter;
 
 import java.awt.*;
@@ -15,6 +16,7 @@ import java.awt.*;
  */
 @Getter
 public abstract class Element {
+    private final long id;
     private final int metaX, metaY;
     private final ElementType type;
     private final Color color;
@@ -24,8 +26,8 @@ public abstract class Element {
         this.color = color;
         this.metaX = metaX;
         this.metaY = metaY;
+        this.id = GlobalIdUtils.generateGlobalId();
     }
 
     public abstract void paint(Graphics g);
-
 }
