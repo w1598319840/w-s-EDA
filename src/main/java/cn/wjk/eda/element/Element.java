@@ -3,8 +3,10 @@ package cn.wjk.eda.element;
 import cn.wjk.eda.enumration.ElementType;
 import cn.wjk.eda.utils.GlobalIdUtils;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * @Package: cn.wjk.eda.element
@@ -15,11 +17,12 @@ import java.awt.*;
  * @Description:
  */
 @Getter
-public abstract class Element {
-    private final long id;
-    private final int metaX, metaY;
-    private final ElementType type;
-    private final Color color;
+@NoArgsConstructor
+public abstract class Element implements Serializable {
+    private long id;
+    private int metaX, metaY;
+    private ElementType type;
+    private Color color;
 
     public Element(ElementType type, Color color, int metaX, int metaY) {
         this.type = type;

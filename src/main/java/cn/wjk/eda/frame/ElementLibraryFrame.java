@@ -13,8 +13,6 @@ import javax.swing.*;
  * @Description:
  */
 public class ElementLibraryFrame extends JFrame {
-    public static int type;
-
     public ElementLibraryFrame(String title) {
         super(title);
         setBounds(500, 200, 900, 600);
