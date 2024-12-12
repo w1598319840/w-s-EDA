@@ -18,9 +18,8 @@ import java.util.List;
  * @Datetime: 2024/12/10 20:28
  * @Description:
  */
-@SuppressWarnings("unused")
 public class IndexPanel extends JPanel implements Runnable {
-    public static final List<Element> elements = new ArrayList<>();
+    public static List<Element> elements = new ArrayList<>();
 
     @Override
     @SuppressWarnings("all")
@@ -61,14 +60,17 @@ public class IndexPanel extends JPanel implements Runnable {
         ElementLibraryPanel.modified = false;
     }
 
+    @SuppressWarnings("unused")
     private void createNewLine() {
         elements.add(new Line(Color.BLACK, 10, 10, 100, 100));
     }
 
+    @SuppressWarnings("unused")
     private void createNewRectangle() {
         elements.add(new Rectangle(Color.blue, 10, 10, 100, 100, true, Color.green));
     }
 
+    @SuppressWarnings("unused")
     private void createNewText() {
         if (ElementLibraryPanel.content == null || ElementLibraryPanel.content.isBlank()) {
             return;
@@ -78,6 +80,7 @@ public class IndexPanel extends JPanel implements Runnable {
         ElementLibraryPanel.content = null;
     }
 
+    @SuppressWarnings("unused")
     private void createNewResistance() {
         elements.add(new Resistance(100, 100));
     }

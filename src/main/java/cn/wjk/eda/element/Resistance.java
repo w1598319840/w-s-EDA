@@ -20,7 +20,7 @@ public class Resistance extends Element {
 
     public Resistance(int x, int y) {
         super(ElementType.RESISTANCE, null, x, y);
-        elementList.add(new Rectangle(Color.YELLOW, x, y, 100, 50, true, Color.ORANGE));
+        elementList.add(new Rectangle(Color.YELLOW, x, y, 100, 50, true, Color.GREEN));
         elementList.add(new Line(Color.BLACK, x - 20, y + 25, x, y + 25));
         elementList.add(new Line(Color.BLACK, x + 100, y + 25, x + 100 + 20, y + 25));
         elementList.add(new Pin(x - 20, y + 25));

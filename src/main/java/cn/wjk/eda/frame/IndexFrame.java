@@ -1,10 +1,14 @@
 package cn.wjk.eda.frame;
 
 import cn.wjk.eda.panel.IndexPanel;
+import cn.wjk.eda.utils.ByteArrayUtils;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.TypeReference;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -16,7 +20,6 @@ import java.lang.reflect.Method;
  * @Datetime: 2024/12/10 20:24
  * @Description:
  */
-@SuppressWarnings("unused")
 public class IndexFrame extends JFrame implements ActionListener {
     public IndexFrame(String title) {
         super(title);
@@ -32,26 +35,27 @@ public class IndexFrame extends JFrame implements ActionListener {
     private void initMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(createFileMenu());
-        menuBar.add(createElement());
+        menuBar.add(createElementMenu());
         setJMenuBar(menuBar);
     }
 
-    private JMenu createElement() {
+    private JMenu createElementMenu() {
         JMenu elementMenu = new JMenu("Element");
-        JMenuItem addElement = new JMenuItem("Add Element");
-        addElement.addActionListener(this);
-        elementMenu.add(addElement);
+        JMenuItem addElementItem = new JMenuItem("Add Element");
+        addElementItem.addActionListener(this);
+        elementMenu.add(addElementItem);
         return elementMenu;
     }
 
     private JMenu createFileMenu() {
         JMenu fileMenu = new JMenu("File");
         JMenuItem saveMenuItem = new JMenuItem("Save");
-        JMenuItem importMenuItem = new JMenuItem("Import");
-        JMenuItem exportMenuItem = new JMenuItem("Export");
         fileMenu.add(saveMenuItem);
+        saveMenuItem.addActionListener(this);
+
+        JMenuItem importMenuItem = new JMenuItem("Import");
         fileMenu.add(importMenuItem);
-        fileMenu.add(exportMenuItem);
+        importMenuItem.addActionListener(this);
         return fileMenu;
     }
 
@@ -74,7 +78,58 @@ public class IndexFrame extends JFrame implements ActionListener {
         }
     }
 
+    @SuppressWarnings("unused")
     private void handleAddElement() {
         new ElementLibraryFrame("ElementLibrary");
+    }
+
+    @SuppressWarnings("unused")
+    private void handleSave() {
+        File file = chooseFile(true);
+        if (file == null) {
+            return;
+        }
+        String elementsString = JSON.toJSONString(ByteArrayUtils.toByteArray(IndexPanel.elements));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.write(elementsString);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    private void handleImport() {
+        File file = chooseFile(false);
+        if (file == null) {
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            char[] buffer = new char[1024 * 1024 * 10];
+            int length;
+            StringBuilder stringBuilder = new StringBuilder();
+            while ((length = reader.read(buffer)) != -1) {
+                stringBuilder.append(buffer, 0, length);
+            }
+            IndexPanel.elements = ByteArrayUtils.toObject(JSON.parseObject(stringBuilder.toString(), byte[].class),
+                    new TypeReference<>() {
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private File chooseFile(boolean flag) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File("."));
+        fileChooser.setDialogTitle("select a file");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (flag) {
+            fileChooser.setApproveButtonText("保存");
+        }
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            return fileChooser.getSelectedFile();
+        }
+        return null;
     }
 }
