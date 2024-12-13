@@ -2,6 +2,8 @@ package cn.wjk.eda.element;
 
 import cn.wjk.eda.enumration.ElementType;
 
+import java.awt.*;
+
 /**
  * @Package: cn.wjk.eda.element
  * @ClassName: Inductance
@@ -13,6 +15,15 @@ import cn.wjk.eda.enumration.ElementType;
 public class Inductance extends ComplexElement {
     public Inductance(int x, int y) {
         super(ElementType.INDUCTANCE, x, y);
-//        elementList.add();
+        elementList.add(new Arc(Color.BLACK, x, y, 20, 20, 0, 180));
+        elementList.add(new Arc(Color.BLACK, x + 20, y, 20, 20, 0, 180));
+        elementList.add(new Arc(Color.BLACK, x + 40, y, 20, 20, 0, 180));
+        elementList.add(new Arc(Color.BLACK, x + 60, y, 20, 20, 0, 180));
+        elementList.add(new Line(Color.BLACK, x - 30, y + 10, x, y + 10));
+        elementList.add(new Line(Color.BLACK, x + 80, y + 10, x + 110, y + 10));
+        pinList.add(new Pin(x - 30, y + 10));
+        pinList.add(new Pin(x + 110, y + 10));
+        elementList.add(new Text(Color.BLACK, x + 20, y + 30, this.getType().getDesc(),
+                new Font("New Roman", Font.BOLD, 20)));
     }
 }

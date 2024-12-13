@@ -15,7 +15,7 @@ import java.util.List;
  * @Description:
  */
 public class ComplexElement extends Element {
-    protected final java.util.List<Element> elementList = new ArrayList<>();
+    protected final List<Element> elementList = new ArrayList<>();
     protected final List<Pin> pinList = new ArrayList<>();
 
     public ComplexElement(ElementType type, int metaX, int metaY) {
