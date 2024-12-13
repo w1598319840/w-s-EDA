@@ -43,50 +43,67 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
     private void initTextText() {
         JTextField jTextField = new JTextField(20);
         jTextField.setEditable(true);
-        jTextField.setBounds(140, 90, 120, 30);
+        jTextField.setBounds(270, 90, 120, 30);
+        jTextField.setText("Input text here");
         add(jTextField);
         fieldMap.put(ElementType.TEXT, jTextField);
     }
 
     private void initButtons() {
+        initBasicElementButton();
+        initComplexElementButton();
+    }
+
+    private void initComplexElementButton() {
+        initResistanceButton();
+        initCapacitanceButton();
+        initInductanceButton();
+    }
+
+    private void initBasicElementButton() {
         initLineButton();
         initRectangleButton();
         initTextButton();
-        initResistanceButton();
-        initCapacitanceButton();
+    }
+
+    private void initInductanceButton() {
+        JButton inductanceButton = new JButton("Inductance");
+        inductanceButton.setBounds(10, 90, 120, 30);
+        inductanceButton.addActionListener(this);
+        add(inductanceButton);
     }
 
     private void initCapacitanceButton() {
         JButton capacitanceButton = new JButton("Capacitance");
-        capacitanceButton.setBounds(10, 170, 120, 30);
+        capacitanceButton.setBounds(10, 50, 120, 30);
         capacitanceButton.addActionListener(this);
         add(capacitanceButton);
     }
 
     private void initResistanceButton() {
         JButton resistanceButton = new JButton("Resistance");
-        resistanceButton.setBounds(10, 130, 120, 30);
+        resistanceButton.setBounds(10, 10, 120, 30);
         resistanceButton.addActionListener(this);
         add(resistanceButton);
     }
 
     private void initTextButton() {
         JButton textButton = new JButton("Text");
-        textButton.setBounds(10, 90, 120, 30);
+        textButton.setBounds(140, 90, 120, 30);
         textButton.addActionListener(this);
         add(textButton);
     }
 
     private void initRectangleButton() {
         JButton rectangleButton = new JButton("Rectangle");
-        rectangleButton.setBounds(10, 50, 120, 30);
+        rectangleButton.setBounds(140, 50, 120, 30);
         rectangleButton.addActionListener(this);
         add(rectangleButton);
     }
 
     private void initLineButton() {
         JButton lineButton = new JButton("Line");
-        lineButton.setBounds(10, 10, 120, 30);
+        lineButton.setBounds(140, 10, 120, 30);
         lineButton.addActionListener(this);
         add(lineButton);
     }
@@ -131,5 +148,9 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
 
     private void handleCapacitance() {
         elementType = ElementType.CAPACITANCE;
+    }
+
+    private void handleInductance() {
+        elementType = ElementType.INDUCTANCE;
     }
 }

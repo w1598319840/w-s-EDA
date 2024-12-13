@@ -1,7 +1,7 @@
 package cn.wjk.eda.panel;
 
-import cn.wjk.eda.element.Rectangle;
 import cn.wjk.eda.element.*;
+import cn.wjk.eda.element.Rectangle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -88,5 +88,10 @@ public class IndexPanel extends JPanel implements Runnable {
     @SuppressWarnings("unused")
     private void createNewCapacitance() {
         elements.add(new Capacitance(100, 100));
+    }
+
+    @SuppressWarnings("unused")
+    private void createNewInductance() {
+        elements.add(new Inductance(100, 100));
     }
 }

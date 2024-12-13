@@ -31,7 +31,7 @@ public class Rectangle extends Element {
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(this.getColor());
+        g.setColor(this.color);
         g.fillRect(this.x, this.y, this.width, this.height);
         if (this.frame) {
             g.setColor(this.frameColor);

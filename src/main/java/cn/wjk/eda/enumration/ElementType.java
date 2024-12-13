@@ -17,9 +17,12 @@ public enum ElementType {
     LINE("Line", "线"),
     RECTANGLE("Rectangle", "矩形"),
     TEXT("Text", "文本"),
+    POLYLINE("Polyline", "折线"),
+    ARC("Arc", "圆弧"),
     PIN("Pin", "引脚"),
     RESISTANCE("Resistance", "电阻"),
-    CAPACITANCE("Capacitance", "电容");
+    CAPACITANCE("Capacitance", "电容"),
+    INDUCTANCE("Inductance", "电感");
 
     private final String name;
     private final String desc;

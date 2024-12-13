@@ -29,7 +29,7 @@ public class Text extends Element {
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(this.getColor());
+        g.setColor(this.color);
         g.setFont(this.font);
         g.drawString(this.text, this.x, this.y);
     }

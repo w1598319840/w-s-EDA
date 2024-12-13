@@ -17,7 +17,7 @@ import java.awt.*;
 public class Line extends Element {
     private final int x1, x2, y1, y2;
 
-    public Line( Color color, int x1, int y1, int x2, int y2) {
+    public Line(Color color, int x1, int y1, int x2, int y2) {
         super(ElementType.LINE, color, x1, y1);
         this.x1 = x1;
         this.y1 = y1;
@@ -27,7 +27,7 @@ public class Line extends Element {
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(this.getColor());
+        g.setColor(this.color);
         g.drawLine(this.x1, this.y1, this.x2, this.y2);
     }
 }
