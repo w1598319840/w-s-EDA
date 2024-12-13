@@ -15,7 +15,7 @@ import java.awt.*;
  */
 @Getter
 public class Line extends Element {
-    private final int x1, x2, y1, y2;
+    private int x1, x2, y1, y2;
 
     public Line(Color color, int x1, int y1, int x2, int y2) {
         super(ElementType.LINE, color, x1, y1);
@@ -29,5 +29,13 @@ public class Line extends Element {
     public void paint(Graphics g) {
         g.setColor(this.color);
         g.drawLine(this.x1, this.y1, this.x2, this.y2);
+    }
+
+    @Override
+    public void move(int currentX, int currentY) {
+        this.x2 = currentX + this.x2 - this.x1;
+        this.y2 = currentY + this.y2 - this.y1;
+        this.x1 = currentX;
+        this.y1 = currentY;
     }
 }

@@ -42,4 +42,12 @@ public abstract class Element implements Serializable {
     }
 
     public abstract void paint(Graphics g);
+
+    public void moveWithMetaData(int currentX, int currentY) {
+        this.metaX = currentX;
+        this.metaY = currentY;
+        move(currentX, currentY);
+    }
+
+    public abstract void move(int currentX, int currentY);
 }

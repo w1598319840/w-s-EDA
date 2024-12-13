@@ -13,7 +13,8 @@ import java.awt.*;
  * @Description:
  */
 public class Arc extends Element {
-    private final int x, y, width, height, startAngle, arcAngle;
+    private int x, y;
+    private final int width, height, startAngle, arcAngle;
 
     public Arc(Color color, int x, int y, int width, int height, int startAngle, int arcAngle) {
         super(ElementType.ARC, color, x, y);
@@ -29,5 +30,11 @@ public class Arc extends Element {
     public void paint(Graphics g) {
         g.setColor(color);
         g.drawArc(x, y, width, height, startAngle, arcAngle);
+    }
+
+    @Override
+    public void move(int currentX, int currentY) {
+        this.x = currentX;
+        this.y = currentY;
     }
 }

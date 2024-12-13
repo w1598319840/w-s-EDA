@@ -15,7 +15,7 @@ import java.awt.*;
  */
 @Getter
 public class Text extends Element {
-    private final int x, y;
+    private int x, y;
     private final String text;
     private final Font font;
 
@@ -32,5 +32,11 @@ public class Text extends Element {
         g.setColor(this.color);
         g.setFont(this.font);
         g.drawString(this.text, this.x, this.y);
+    }
+
+    @Override
+    public void move(int currentX, int currentY) {
+        this.x = currentX;
+        this.y = currentY;
     }
 }

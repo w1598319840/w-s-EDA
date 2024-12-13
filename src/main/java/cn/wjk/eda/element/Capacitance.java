@@ -24,4 +24,9 @@ public class Capacitance extends ComplexElement {
         elementList.add(new Text(Color.BLACK, x - 10, y + 70, this.getType().getDesc(),
                 new Font("New Roman", Font.BOLD, 20)));
     }
+
+    @Override
+    public void move(int currentX, int currentY) {
+
+    }
 }

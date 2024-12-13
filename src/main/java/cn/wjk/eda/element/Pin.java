@@ -35,4 +35,10 @@ public class Pin extends Element {
             g.drawOval(x - 5, y - 5, 10, 10);
         }
     }
+
+    @Override
+    public void move(int currentX, int currentY) {
+        this.x = currentX;
+        this.y = currentY;
+    }
 }

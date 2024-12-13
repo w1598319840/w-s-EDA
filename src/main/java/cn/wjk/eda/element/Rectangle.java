@@ -15,7 +15,8 @@ import java.awt.*;
  */
 @Getter
 public class Rectangle extends Element {
-    private final int x, y, width, height;
+    private int x, y;
+    private final int width, height;
     private final boolean frame;
     private final Color frameColor;
 
@@ -37,5 +38,11 @@ public class Rectangle extends Element {
             g.setColor(this.frameColor);
             g.drawRect(this.x, this.y, this.width, this.height);
         }
+    }
+
+    @Override
+    public void move(int currentX, int currentY) {
+        this.x = currentX;
+        this.y = currentY;
     }
 }
