@@ -17,15 +17,16 @@ import java.util.List;
  */
 public class Resistance extends Element {
     private final List<Element> elementList = new ArrayList<>();
+    private final List<Pin> pinList = new ArrayList<>();
 
     public Resistance(int x, int y) {
         super(ElementType.RESISTANCE, null, x, y);
         elementList.add(new Rectangle(Color.YELLOW, x, y, 100, 50, true, Color.GREEN));
         elementList.add(new Line(Color.BLACK, x - 20, y + 25, x, y + 25));
         elementList.add(new Line(Color.BLACK, x + 100, y + 25, x + 100 + 20, y + 25));
-        elementList.add(new Pin(x - 20, y + 25));
-        elementList.add(new Pin(x + 100 + 20, y + 25));
-        elementList.add(new Text(Color.BLACK, x + 30, y + 70, ElementType.RESISTANCE.getDesc(),
+        pinList.add(new Pin(x - 20, y + 25));
+        pinList.add(new Pin(x + 100 + 20, y + 25));
+        elementList.add(new Text(Color.BLACK, x + 30, y + 70, this.getType().getDesc(),
                 new Font("New Roman", Font.BOLD, 20)));
     }
 
@@ -33,6 +34,9 @@ public class Resistance extends Element {
     public void paint(Graphics g) {
         for (Element element : elementList) {
             element.paint(g);
+        }
+        for (Pin pin : pinList) {
+            pin.paint(g);
         }
     }
 }

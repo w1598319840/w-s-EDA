@@ -18,7 +18,8 @@ public enum ElementType {
     RECTANGLE("Rectangle", "矩形"),
     TEXT("Text", "文本"),
     PIN("Pin", "引脚"),
-    RESISTANCE("Resistance", "电阻");
+    RESISTANCE("Resistance", "电阻"),
+    CAPACITANCE("Capacitance", "电容");
 
     private final String name;
     private final String desc;

@@ -84,4 +84,9 @@ public class IndexPanel extends JPanel implements Runnable {
     private void createNewResistance() {
         elements.add(new Resistance(100, 100));
     }
+
+    @SuppressWarnings("unused")
+    private void createNewCapacitance() {
+        elements.add(new Capacitance(100, 100));
+    }
 }

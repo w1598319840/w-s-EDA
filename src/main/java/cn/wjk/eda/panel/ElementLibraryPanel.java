@@ -43,7 +43,7 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
     private void initTextText() {
         JTextField jTextField = new JTextField(20);
         jTextField.setEditable(true);
-        jTextField.setBounds(120, 90, 100, 30);
+        jTextField.setBounds(140, 90, 120, 30);
         add(jTextField);
         fieldMap.put(ElementType.TEXT, jTextField);
     }
@@ -53,32 +53,40 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
         initRectangleButton();
         initTextButton();
         initResistanceButton();
+        initCapacitanceButton();
+    }
+
+    private void initCapacitanceButton() {
+        JButton capacitanceButton = new JButton("Capacitance");
+        capacitanceButton.setBounds(10, 170, 120, 30);
+        capacitanceButton.addActionListener(this);
+        add(capacitanceButton);
     }
 
     private void initResistanceButton() {
         JButton resistanceButton = new JButton("Resistance");
-        resistanceButton.setBounds(10, 130, 100, 30);
+        resistanceButton.setBounds(10, 130, 120, 30);
         resistanceButton.addActionListener(this);
         add(resistanceButton);
     }
 
     private void initTextButton() {
         JButton textButton = new JButton("Text");
-        textButton.setBounds(10, 90, 100, 30);
+        textButton.setBounds(10, 90, 120, 30);
         textButton.addActionListener(this);
         add(textButton);
     }
 
     private void initRectangleButton() {
         JButton rectangleButton = new JButton("Rectangle");
-        rectangleButton.setBounds(10, 50, 100, 30);
+        rectangleButton.setBounds(10, 50, 120, 30);
         rectangleButton.addActionListener(this);
         add(rectangleButton);
     }
 
     private void initLineButton() {
         JButton lineButton = new JButton("Line");
-        lineButton.setBounds(10, 10, 100, 30);
+        lineButton.setBounds(10, 10, 120, 30);
         lineButton.addActionListener(this);
         add(lineButton);
     }
@@ -119,5 +127,9 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
 
     private void handleResistance() {
         elementType = ElementType.RESISTANCE;
+    }
+
+    private void handleCapacitance() {
+        elementType = ElementType.CAPACITANCE;
     }
 }
