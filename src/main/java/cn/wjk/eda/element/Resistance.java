@@ -24,9 +24,4 @@ public class Resistance extends ComplexElement {
         elementList.add(new Text(Color.BLACK, x + 30, y + 70, this.getType().getDesc(),
                 new Font("New Roman", Font.BOLD, 20)));
     }
-
-    @Override
-    public void move(int currentX, int currentY) {
-
-    }
 }

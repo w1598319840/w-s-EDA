@@ -121,8 +121,9 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     public void mouseClicked(MouseEvent e) {
     }
 
-    private void selectTheNearestComponent(int x, int y) {
+    private Element selectTheNearestComponent(int x, int y) {
         double minDistance = Integer.MAX_VALUE;
+        Element nearestElement = null;
         for (Element element : elements) {
             int metaX = element.getMetaX();
             int metaY = element.getMetaY();
@@ -131,10 +132,11 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
                 continue;
             }
             if (distance < minDistance) {
-                selectedElement = element;
+                nearestElement = element;
                 minDistance = distance;
             }
         }
+        return nearestElement;
     }
 
     private double getDistance(int x1, int y1, int x2, int y2) {
@@ -145,7 +147,13 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
 
     @Override
     public void mousePressed(MouseEvent e) {
-        selectTheNearestComponent(e.getX(), e.getY());
+        int startX = e.getX();
+        int startY = e.getY();
+        selectedElement = selectTheNearestComponent(startX, startY);
+        if (selectedElement != null) {
+            selectedElement.setStartX(startX);
+            selectedElement.setStartY(startY);
+        }
     }
 
     @Override

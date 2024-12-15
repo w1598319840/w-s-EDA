@@ -14,7 +14,7 @@ import java.util.List;
  * @Datetime: 2024/12/13 12:24
  * @Description:
  */
-public abstract class ComplexElement extends Element {
+public class ComplexElement extends Element {
     protected final List<Element> elementList = new ArrayList<>();
     protected final List<Pin> pinList = new ArrayList<>();
 
@@ -33,5 +33,16 @@ public abstract class ComplexElement extends Element {
     }
 
     @Override
-    public abstract void move(int currentX, int currentY);
+    public void move(int currentX, int currentY) {
+        for (Element element : elementList) {
+            element.startX = startX;
+            element.startY = startY;
+            element.move(currentX, currentY);
+        }
+        for (Pin pin : pinList) {
+            pin.startX = startX;
+            pin.startY = startY;
+            pin.move(currentX, currentY);
+        }
+    }
 }

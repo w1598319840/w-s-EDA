@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Data
 public abstract class Element implements Serializable {
     protected long id;
-    protected int metaX, metaY;
+    protected int metaX, metaY, startX, startY;
     protected ElementType type;
     protected Color color;
 
@@ -44,9 +44,11 @@ public abstract class Element implements Serializable {
     public abstract void paint(Graphics g);
 
     public void moveWithMetaData(int currentX, int currentY) {
-        this.metaX = currentX;
-        this.metaY = currentY;
+        this.metaX += currentX - startX;
+        this.metaY += currentY - startY;
         move(currentX, currentY);
+        this.startX = currentX;
+        this.startY = currentY;
     }
 
     public abstract void move(int currentX, int currentY);

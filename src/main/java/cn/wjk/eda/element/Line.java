@@ -33,9 +33,11 @@ public class Line extends Element {
 
     @Override
     public void move(int currentX, int currentY) {
-        this.x2 = currentX + this.x2 - this.x1;
-        this.y2 = currentY + this.y2 - this.y1;
-        this.x1 = currentX;
-        this.y1 = currentY;
+        int dx = currentX - startX;
+        int dy = currentY - startY;
+        this.x2 += dx;
+        this.y2 += dy;
+        this.x1 += dx;
+        this.y1 += dy;
     }
 }

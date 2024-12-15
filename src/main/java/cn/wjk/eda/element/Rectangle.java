@@ -42,7 +42,7 @@ public class Rectangle extends Element {
 
     @Override
     public void move(int currentX, int currentY) {
-        this.x = currentX;
-        this.y = currentY;
+        this.x += currentX - startX;
+        this.y += currentY - startY;
     }
 }
