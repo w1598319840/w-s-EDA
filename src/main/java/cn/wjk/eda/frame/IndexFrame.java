@@ -62,6 +62,9 @@ public class IndexFrame extends JFrame implements ActionListener {
     private void initPanel() {
         IndexPanel indexPanel = new IndexPanel();
         add(indexPanel);
+        addMouseMotionListener(indexPanel);
+        addMouseListener(indexPanel);
+        addKeyListener(indexPanel);
         new Thread(indexPanel).start();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

@@ -5,9 +5,7 @@ import cn.wjk.eda.element.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -21,15 +19,10 @@ import java.util.List;
  * @Datetime: 2024/12/10 20:28
  * @Description:
  */
-public class IndexPanel extends JPanel implements Runnable, MouseMotionListener, MouseListener {
+public class IndexPanel extends JPanel implements Runnable, MouseMotionListener, MouseListener, KeyListener {
     public static List<Element> elements = new ArrayList<>();
     private Element selectedElement;
     private static final double MAX_DISTANCE = 100;
-
-    public IndexPanel() {
-        addMouseMotionListener(this);
-        addMouseListener(this);
-    }
 
     @Override
     @SuppressWarnings("all")
@@ -158,7 +151,6 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        this.selectedElement = null;
     }
 
     @Override
@@ -168,6 +160,23 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+            elements.remove(selectedElement);
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
 
     }
 }
