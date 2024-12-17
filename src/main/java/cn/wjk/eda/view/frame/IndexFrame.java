@@ -1,7 +1,9 @@
 package cn.wjk.eda.view.frame;
 
-import cn.wjk.eda.view.panel.IndexPanel;
+import cn.wjk.eda.element.Element;
 import cn.wjk.eda.utils.ByteArrayUtils;
+import cn.wjk.eda.utils.GlobalIdUtils;
+import cn.wjk.eda.view.panel.IndexPanel;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
 
@@ -11,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * @Package: cn.wjk.eda.view
@@ -119,6 +123,15 @@ public class IndexFrame extends JFrame implements ActionListener {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        updateGlobalId();
+    }
+
+    private void updateGlobalId() {
+        List<Element> elements = IndexPanel.elements;
+        if (elements == null || elements.isEmpty()) {
+            return;
+        }
+        GlobalIdUtils.init(elements.stream().map(Element::getId).max(Comparator.comparingLong(l -> l)).get());
     }
 
     private File chooseFile(boolean flag) {

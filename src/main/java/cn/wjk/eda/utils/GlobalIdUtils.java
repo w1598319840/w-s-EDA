@@ -17,4 +17,9 @@ public class GlobalIdUtils {
         longAdder.increment();
         return longAdder.longValue();
     }
+
+    public static void init(long val){
+        longAdder.reset();
+        longAdder.add(val);
+    }
 }
