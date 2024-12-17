@@ -255,6 +255,11 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
             if (linkType == LinkType.DISABLED) {
                 linkType = LinkType.NOT_SELECTED;
             } else {
+                if (linkType == LinkType.SELECTED_ONE) {
+                    wires.remove(selectedWire);
+                    selectedWire.getPin1().setLinked(false);
+                    selectedWire = null;
+                }
                 linkType = LinkType.DISABLED;
             }
         }
