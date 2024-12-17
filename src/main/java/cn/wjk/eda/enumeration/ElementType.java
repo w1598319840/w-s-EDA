@@ -1,10 +1,10 @@
-package cn.wjk.eda.enumration;
+package cn.wjk.eda.enumeration;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Package: cn.wjk.eda.enumration
+ * @Package: cn.wjk.eda.enumeration
  * @ClassName: ElementType
  * @Version: 1.0
  * @Author: 温嘉凯
@@ -22,7 +22,8 @@ public enum ElementType {
     PIN("Pin", "引脚"),
     RESISTANCE("Resistance", "电阻"),
     CAPACITANCE("Capacitance", "电容"),
-    INDUCTANCE("Inductance", "电感");
+    INDUCTANCE("Inductance", "电感"),
+    WIRE("Wire", "导线");
 
     private final String name;
     private final String desc;

@@ -1,7 +1,7 @@
-package cn.wjk.eda.panel;
+package cn.wjk.eda.view.panel;
 
-import cn.wjk.eda.enumration.ElementType;
-import cn.wjk.eda.frame.ElementLibraryFrame;
+import cn.wjk.eda.enumeration.ElementType;
+import cn.wjk.eda.view.frame.ElementLibraryFrame;
 import lombok.Setter;
 
 import javax.swing.*;

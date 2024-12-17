@@ -1,6 +1,6 @@
 package cn.wjk.eda.element;
 
-import cn.wjk.eda.enumration.ElementType;
+import cn.wjk.eda.enumeration.ElementType;
 import cn.wjk.eda.utils.GlobalIdUtils;
 import lombok.Data;
 import lombok.Getter;
@@ -39,6 +39,11 @@ public abstract class Element implements Serializable {
         this.metaX = metaX;
         this.metaY = metaY;
         this.id = GlobalIdUtils.generateGlobalId();
+    }
+
+    public Element(ElementType type, Color color) {
+        this.type = type;
+        this.color = color;
     }
 
     public abstract void paint(Graphics g);

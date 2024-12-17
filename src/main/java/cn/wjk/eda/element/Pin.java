@@ -1,6 +1,6 @@
 package cn.wjk.eda.element;
 
-import cn.wjk.eda.enumration.ElementType;
+import cn.wjk.eda.enumeration.ElementType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,28 +17,29 @@ import java.awt.*;
 @Setter
 @Getter
 public class Pin extends Element {
-    private int x, y;
     private boolean linked;
+    private ComplexElement owner;
 
-    public Pin(int x, int y) {
+    public Pin(int x, int y, ComplexElement owner) {
         super(ElementType.PIN, null, x, y);
-        this.x = x;
-        this.y = y;
+        this.owner = owner;
     }
 
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.BLUE);
-        if (linked) {
-            g.fillOval(x - 5, y - 5, 10, 10);
-        } else {
-            g.drawOval(x - 5, y - 5, 10, 10);
+        if (!linked) {
+            g.drawOval(metaX - 5, metaY - 5, 10, 10);
         }
     }
 
     @Override
     public void move(int currentX, int currentY) {
-        this.x += currentX - startX;
-        this.y += currentY - startY;
+        this.metaX += currentX - startX;
+        this.metaY += currentY - startY;
+    }
+
+    public boolean selected(int selectedX, int selectedY) {
+        return selectedX <= metaX + 10 && selectedX >= metaX && selectedY <= metaY + 10 && selectedY >= metaY;
     }
 }

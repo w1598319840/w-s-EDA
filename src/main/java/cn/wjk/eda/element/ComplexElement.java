@@ -1,6 +1,7 @@
 package cn.wjk.eda.element;
 
-import cn.wjk.eda.enumration.ElementType;
+import cn.wjk.eda.enumeration.ElementType;
+import lombok.Getter;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 public class ComplexElement extends Element {
     protected final List<Element> elementList = new ArrayList<>();
+    @Getter
     protected final List<Pin> pinList = new ArrayList<>();
 
     public ComplexElement(ElementType type, int metaX, int metaY) {

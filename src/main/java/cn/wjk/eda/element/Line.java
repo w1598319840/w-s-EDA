@@ -1,6 +1,6 @@
 package cn.wjk.eda.element;
 
-import cn.wjk.eda.enumration.ElementType;
+import cn.wjk.eda.enumeration.ElementType;
 import lombok.Getter;
 
 import java.awt.*;

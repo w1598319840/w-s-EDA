@@ -1,6 +1,6 @@
 package cn.wjk.eda;
 
-import cn.wjk.eda.frame.IndexFrame;
+import cn.wjk.eda.view.frame.IndexFrame;
 
 /**
  * @Package: cn.wjk.eda.view

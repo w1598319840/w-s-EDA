@@ -1,6 +1,6 @@
-package cn.wjk.eda.frame;
+package cn.wjk.eda.view.frame;
 
-import cn.wjk.eda.panel.ElementLibraryPanel;
+import cn.wjk.eda.view.panel.ElementLibraryPanel;
 
 import javax.swing.*;
 

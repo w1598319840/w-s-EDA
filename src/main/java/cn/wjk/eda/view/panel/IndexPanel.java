@@ -1,7 +1,8 @@
-package cn.wjk.eda.panel;
+package cn.wjk.eda.view.panel;
 
 import cn.wjk.eda.element.Rectangle;
 import cn.wjk.eda.element.*;
+import cn.wjk.eda.enumeration.LinkType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,9 +21,13 @@ import java.util.List;
  * @Description:
  */
 public class IndexPanel extends JPanel implements Runnable, MouseMotionListener, MouseListener, KeyListener {
+    public static final String DEFAULT_FONT = "Times New Roman";
     public static List<Element> elements = new ArrayList<>();
+    public static List<Wire> wires = new ArrayList<>();
     private Element selectedElement;
+    private Wire selectedWire;
     private static final double MAX_DISTANCE = 100;
+    private LinkType linkType = LinkType.DISABLED;
 
     @Override
     @SuppressWarnings("all")
@@ -42,6 +47,12 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         super.paint(g);
         for (Element element : elements) {
             element.paint(g);
+        }
+        for (Wire wire : wires) {
+            wire.paint(g);
+        }
+        if (linkType != LinkType.DISABLED) {
+            linkType.getText().paint(g);
         }
     }
 
@@ -78,8 +89,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         if (ElementLibraryPanel.content == null || ElementLibraryPanel.content.isBlank()) {
             return;
         }
-        elements.add(new Text(Color.black, 10, 10, ElementLibraryPanel.content,
-                new Font("Times New Roman", Font.PLAIN, 20)));
+        elements.add(new Text(Color.black, 10, 10, ElementLibraryPanel.content, new Font(DEFAULT_FONT, Font.PLAIN, 20)));
         ElementLibraryPanel.content = null;
     }
 
@@ -100,14 +110,41 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if (linkType == LinkType.DISABLED) {
+            moveElement(x, y);
+        }
+    }
+
+    /**
+     * 未连接的wire的另一端跟随鼠标
+     * @param x 鼠标x
+     * @param y 鼠标y
+     */
+    private void unlinkWireFollow(int x, int y) {
+        selectedWire.move(x, y);
+    }
+
+    private void moveElement(int x, int y) {
         if (selectedElement != null) {
-            selectedElement.moveWithMetaData(e.getX(), e.getY());
+            selectedElement.moveWithMetaData(x, y);
+            for (Wire wire : wires) {
+                if ((wire.getPin1().getOwner() == selectedElement && wire.getPin1().isLinked()) ||
+                        (wire.getPin2().getOwner() == selectedElement && wire.getPin2().isLinked())) {
+                    wire.move();
+                }
+            }
         }
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-
+        int x = e.getX();
+        int y = e.getY();
+        if (linkType == LinkType.SELECTED_ONE) {
+            unlinkWireFollow(x, y - 50);
+        }
     }
 
     @Override
@@ -142,15 +179,57 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     public void mousePressed(MouseEvent e) {
         int startX = e.getX();
         int startY = e.getY();
-        selectedElement = selectTheNearestComponent(startX, startY);
-        if (selectedElement != null) {
-            selectedElement.setStartX(startX);
-            selectedElement.setStartY(startY);
+        if (linkType == LinkType.DISABLED) {
+            selectedElement = selectTheNearestComponent(startX, startY);
+            if (selectedElement != null) {
+                selectedElement.setStartX(startX);
+                selectedElement.setStartY(startY);
+            }
+        } else {
+            link(startX, startY - 50);
         }
+    }
+
+    private void link(int x, int y) {
+        if (linkType == LinkType.DISABLED) {
+            return;
+        }
+        Pin pin = selectTheNearestPin(x, y);
+        if (pin == null) {
+            return;
+        }
+        pin.setLinked(true);
+        if (linkType == LinkType.NOT_SELECTED) {
+            selectedWire = new Wire(pin, x, y);
+            wires.add(selectedWire);
+            linkType = LinkType.SELECTED_ONE;
+        } else if (linkType == LinkType.SELECTED_ONE) {
+            selectedWire.enable(pin);
+            linkType = LinkType.DISABLED;
+            selectedWire = null;
+        }
+    }
+
+    private Pin selectTheNearestPin(int x, int y) {
+        for (Element element : elements) {
+            if (element instanceof ComplexElement) {
+                List<Pin> pinList = ((ComplexElement) element).getPinList();
+                for (Pin pin : pinList) {
+                    if (pin.isLinked()) {
+                        continue;
+                    }
+                    if (pin.selected(x, y)) {
+                        return pin;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        selectedElement = null;
     }
 
     @Override
@@ -172,6 +251,12 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DELETE) {
             elements.remove(selectedElement);
+        } else if (e.getKeyCode() == KeyEvent.VK_W) {
+            if (linkType == LinkType.DISABLED) {
+                linkType = LinkType.NOT_SELECTED;
+            } else {
+                linkType = LinkType.DISABLED;
+            }
         }
     }
 

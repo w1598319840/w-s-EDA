@@ -1,6 +1,6 @@
-package cn.wjk.eda.frame;
+package cn.wjk.eda.view.frame;
 
-import cn.wjk.eda.panel.IndexPanel;
+import cn.wjk.eda.view.panel.IndexPanel;
 import cn.wjk.eda.utils.ByteArrayUtils;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
