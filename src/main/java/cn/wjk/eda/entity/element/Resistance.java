@@ -1,4 +1,4 @@
-package cn.wjk.eda.element;
+package cn.wjk.eda.entity.element;
 
 
 import cn.wjk.eda.enumeration.ElementType;

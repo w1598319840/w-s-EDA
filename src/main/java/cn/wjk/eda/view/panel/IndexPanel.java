@@ -1,7 +1,7 @@
 package cn.wjk.eda.view.panel;
 
-import cn.wjk.eda.element.Rectangle;
-import cn.wjk.eda.element.*;
+import cn.wjk.eda.entity.element.*;
+import cn.wjk.eda.entity.element.Rectangle;
 import cn.wjk.eda.enumeration.LinkType;
 
 import javax.swing.*;

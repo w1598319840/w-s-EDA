@@ -1,6 +1,6 @@
 package cn.wjk.eda.enumeration;
 
-import cn.wjk.eda.element.Text;
+import cn.wjk.eda.entity.element.Text;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

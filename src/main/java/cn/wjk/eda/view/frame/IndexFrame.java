@@ -1,11 +1,11 @@
 package cn.wjk.eda.view.frame;
 
-import cn.wjk.eda.element.Element;
+import cn.wjk.eda.entity.eda.EDAEntity;
+import cn.wjk.eda.entity.element.Element;
 import cn.wjk.eda.utils.ByteArrayUtils;
 import cn.wjk.eda.utils.GlobalIdUtils;
 import cn.wjk.eda.view.panel.IndexPanel;
 import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.TypeReference;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -45,14 +45,21 @@ public class IndexFrame extends JFrame implements ActionListener {
 
     private JMenu createElementMenu() {
         JMenu elementMenu = new JMenu("Element");
+
         JMenuItem addElementItem = new JMenuItem("Add Element");
         addElementItem.addActionListener(this);
         elementMenu.add(addElementItem);
+
+        JMenuItem editElementItem = new JMenuItem("Clear");
+        editElementItem.addActionListener(this);
+        elementMenu.add(editElementItem);
+
         return elementMenu;
     }
 
     private JMenu createFileMenu() {
         JMenu fileMenu = new JMenu("File");
+
         JMenuItem saveMenuItem = new JMenuItem("Save");
         fileMenu.add(saveMenuItem);
         saveMenuItem.addActionListener(this);
@@ -60,6 +67,7 @@ public class IndexFrame extends JFrame implements ActionListener {
         JMenuItem importMenuItem = new JMenuItem("Import");
         fileMenu.add(importMenuItem);
         importMenuItem.addActionListener(this);
+
         return fileMenu;
     }
 
@@ -96,12 +104,19 @@ public class IndexFrame extends JFrame implements ActionListener {
         if (file == null) {
             return;
         }
-        String elementsString = JSON.toJSONString(ByteArrayUtils.toByteArray(IndexPanel.elements));
+        String elementsString = JSON.toJSONString(ByteArrayUtils.toByteArray(
+                new EDAEntity(IndexPanel.elements, IndexPanel.wires)));
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(elementsString);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @SuppressWarnings("unused")
+    private void handleClear() {
+        IndexPanel.elements.clear();
+        IndexPanel.wires.clear();
     }
 
     @SuppressWarnings("unused")
@@ -117,9 +132,10 @@ public class IndexFrame extends JFrame implements ActionListener {
             while ((length = reader.read(buffer)) != -1) {
                 stringBuilder.append(buffer, 0, length);
             }
-            IndexPanel.elements = ByteArrayUtils.toObject(JSON.parseObject(stringBuilder.toString(), byte[].class),
-                    new TypeReference<>() {
-                    });
+            EDAEntity edaEntity = ByteArrayUtils.toObject(JSON.parseObject(stringBuilder.toString(), byte[].class),
+                    EDAEntity.class);
+            IndexPanel.elements = edaEntity.getElements();
+            IndexPanel.wires = edaEntity.getWires();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

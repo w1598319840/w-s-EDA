@@ -1,7 +1,5 @@
 package cn.wjk.eda.utils;
 
-import com.alibaba.fastjson2.TypeReference;
-
 import java.io.*;
 
 /**
@@ -50,7 +48,7 @@ public class ByteArrayUtils {
     /**
      * 数组转对象
      */
-    public static <T> T toObject(byte[] bytes, TypeReference<T> typeReference) {
+    public static <T> T toObject(byte[] bytes, Class<T> clazz) {
         Object obj = null;
         ByteArrayInputStream bis = null;
         ObjectInputStream ois = null;
