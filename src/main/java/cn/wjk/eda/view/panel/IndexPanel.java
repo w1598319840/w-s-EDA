@@ -1,7 +1,7 @@
 package cn.wjk.eda.view.panel;
 
-import cn.wjk.eda.entity.element.*;
 import cn.wjk.eda.entity.element.Rectangle;
+import cn.wjk.eda.entity.element.*;
 import cn.wjk.eda.enumeration.LinkType;
 
 import javax.swing.*;
@@ -25,6 +25,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     public static List<Element> elements = new ArrayList<>();
     public static List<Wire> wires = new ArrayList<>();
     private Element selectedElement;
+    private Element lastSelectedElement;
     private Wire selectedWire;
     private static final double MAX_DISTANCE = 100;
     private LinkType linkType = LinkType.DISABLED;
@@ -181,6 +182,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         int startY = e.getY();
         if (linkType == LinkType.DISABLED) {
             selectedElement = selectTheNearestComponent(startX, startY);
+            lastSelectedElement = selectedElement;
             if (selectedElement != null) {
                 selectedElement.setStartX(startX);
                 selectedElement.setStartY(startY);
@@ -250,19 +252,47 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DELETE) {
-            elements.remove(selectedElement);
+            pressDelete();
         } else if (e.getKeyCode() == KeyEvent.VK_W) {
-            if (linkType == LinkType.DISABLED) {
-                linkType = LinkType.NOT_SELECTED;
-            } else {
-                if (linkType == LinkType.SELECTED_ONE) {
-                    wires.remove(selectedWire);
-                    selectedWire.getPin1().setLinked(false);
-                    selectedWire = null;
+            pressW();
+        }
+    }
+
+    private void pressW() {
+        if (linkType == LinkType.DISABLED) {
+            linkType = LinkType.NOT_SELECTED;
+        } else {
+            if (linkType == LinkType.SELECTED_ONE) {
+                wires.remove(selectedWire);
+                selectedWire.getPin1().setLinked(false);
+                selectedWire = null;
+            }
+            linkType = LinkType.DISABLED;
+        }
+    }
+
+    private void pressDelete() {
+        if (lastSelectedElement == null) {
+            return;
+        }
+        elements.remove(lastSelectedElement);
+        List<Wire> deleteWires = new ArrayList<>();
+        for (Wire wire : wires) {
+            if (wire.getPin1() != null && wire.getPin1().getOwner() == lastSelectedElement) {
+                if (wire.getPin2() != null) {
+                    wire.getPin2().setLinked(false);
                 }
-                linkType = LinkType.DISABLED;
+                deleteWires.add(wire);
+            }
+            if (wire.getPin2() != null && wire.getPin2().getOwner() == lastSelectedElement) {
+                if (wire.getPin1() != null) {
+                    wire.getPin1().setLinked(false);
+                }
+                deleteWires.add(wire);
             }
         }
+        wires.removeAll(deleteWires);
+        lastSelectedElement = null;
     }
 
     @Override

@@ -50,10 +50,6 @@ public class IndexFrame extends JFrame implements ActionListener {
         addElementItem.addActionListener(this);
         elementMenu.add(addElementItem);
 
-        JMenuItem editElementItem = new JMenuItem("Clear");
-        editElementItem.addActionListener(this);
-        elementMenu.add(editElementItem);
-
         return elementMenu;
     }
 
@@ -67,6 +63,10 @@ public class IndexFrame extends JFrame implements ActionListener {
         JMenuItem importMenuItem = new JMenuItem("Import");
         fileMenu.add(importMenuItem);
         importMenuItem.addActionListener(this);
+
+        JMenuItem editElementItem = new JMenuItem("Clear");
+        editElementItem.addActionListener(this);
+        fileMenu.add(editElementItem);
 
         return fileMenu;
     }
@@ -134,8 +134,10 @@ public class IndexFrame extends JFrame implements ActionListener {
             }
             EDAEntity edaEntity = ByteArrayUtils.toObject(JSON.parseObject(stringBuilder.toString(), byte[].class),
                     EDAEntity.class);
-            IndexPanel.elements = edaEntity.getElements();
-            IndexPanel.wires = edaEntity.getWires();
+            if(edaEntity != null) {
+                IndexPanel.elements = edaEntity.getElements();
+                IndexPanel.wires = edaEntity.getWires();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

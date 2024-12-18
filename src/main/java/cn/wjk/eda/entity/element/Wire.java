@@ -1,6 +1,7 @@
 package cn.wjk.eda.entity.element;
 
 import cn.wjk.eda.enumeration.ElementType;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ import java.awt.*;
  */
 @Getter
 @Setter
+@EqualsAndHashCode(callSuper = true)
 public class Wire extends Element {
     private boolean enabled;
     private Pin pin1, pin2;
@@ -23,7 +25,7 @@ public class Wire extends Element {
     private Polyline polyline;
 
     public Wire(Pin pin1, int mouseX, int mouseY) {
-        super(ElementType.WIRE, null);
+        super(ElementType.WIRE, null, (pin1.getMetaX() + mouseX) / 2, (pin1.getMetaY() + mouseY) / 2);
         this.pin1 = pin1;
         this.mouseX = mouseX;
         this.mouseY = mouseY;
