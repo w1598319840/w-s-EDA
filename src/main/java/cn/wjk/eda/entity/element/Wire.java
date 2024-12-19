@@ -47,15 +47,15 @@ public class Wire extends Element {
         int dx = Math.abs(x2 - x1);
         int dy = Math.abs(y2 - y1);
         if (dx > dy) {
-            xPoints[1] = (x1 + x2) / 2;
+            xPoints[1] = this.metaX;
             yPoints[1] = y1;
-            xPoints[2] = (x1 + x2) / 2;
+            xPoints[2] = this.metaX;
             yPoints[2] = y2;
         } else {
             xPoints[1] = x1;
-            yPoints[1] = (y1 + y2) / 2;
+            yPoints[1] = this.metaY;
             xPoints[2] = x2;
-            yPoints[2] = (y1 + y2) / 2;
+            yPoints[2] = this.metaY;
         }
 
         return new Polyline(enabled ? Color.GREEN : Color.RED, xPoints, yPoints);
@@ -70,16 +70,22 @@ public class Wire extends Element {
     public void move(int currentX, int currentY) {
         mouseX = currentX;
         mouseY = currentY;
+        this.metaX = (mouseX + pin1.getMetaX()) / 2;
+        this.metaY = (mouseY + pin1.getMetaY()) / 2;
         this.polyline = generatePolyLine();
     }
 
     public void move() {
+        this.metaX = (pin1.getMetaX() + pin2.getMetaX()) / 2;
+        this.metaY = (pin1.getMetaY() + pin2.getMetaY()) / 2;
         this.polyline = generatePolyLine();
     }
 
     public void enable(Pin pin2) {
         this.pin2 = pin2;
         this.enabled = true;
+        this.metaX = (pin1.getMetaX() + pin2.getMetaX()) / 2;
+        this.metaY = (pin1.getMetaY() + pin2.getMetaY()) / 2;
         this.polyline = generatePolyLine();
     }
 }
