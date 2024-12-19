@@ -27,6 +27,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     private Element selectedElement;
     private Element lastSelectedElement;
     private Wire selectedWire;
+    private Wire lastSelectedWire;
     private static final double MAX_DISTANCE = 100;
     private LinkType linkType = LinkType.DISABLED;
 
@@ -152,7 +153,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     public void mouseClicked(MouseEvent e) {
     }
 
-    private Element selectTheNearestComponent(int x, int y) {
+    private Element selectTheNearestElement(int x, int y) {
         double minDistance = Integer.MAX_VALUE;
         Element nearestElement = null;
         for (Element element : elements) {
@@ -181,15 +182,40 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         int startX = e.getX();
         int startY = e.getY();
         if (linkType == LinkType.DISABLED) {
-            selectedElement = selectTheNearestComponent(startX, startY);
-            lastSelectedElement = selectedElement;
-            if (selectedElement != null) {
-                selectedElement.setStartX(startX);
-                selectedElement.setStartY(startY);
-            }
+            select(startX, startY);
         } else {
             link(startX, startY - 50);
         }
+    }
+
+    private void select(int startX, int startY) {
+        selectedElement = selectTheNearestElement(startX, startY);
+        lastSelectedElement = selectedElement;
+        if (selectedElement != null) {
+            selectedElement.setStartX(startX);
+            selectedElement.setStartY(startY);
+        } else {
+            lastSelectedWire = selectTheNearestWire(startX, startY - 50);
+            lastSelectedElement = null;
+        }
+    }
+
+    private Wire selectTheNearestWire(int x, int y) {
+        double minDistance = Integer.MAX_VALUE;
+        Wire nearestWire = null;
+        for (Wire wire : wires) {
+            int metaX = wire.getMetaX();
+            int metaY = wire.getMetaY();
+            double distance = getDistance(x, y, metaX, metaY);
+            if (distance > MAX_DISTANCE) {
+                continue;
+            }
+            if (distance < minDistance) {
+                nearestWire = wire;
+                minDistance = distance;
+            }
+        }
+        return nearestWire;
     }
 
     private void link(int x, int y) {
@@ -272,27 +298,31 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     }
 
     private void pressDelete() {
-        if (lastSelectedElement == null) {
-            return;
-        }
-        elements.remove(lastSelectedElement);
-        List<Wire> deleteWires = new ArrayList<>();
-        for (Wire wire : wires) {
-            if (wire.getPin1() != null && wire.getPin1().getOwner() == lastSelectedElement) {
-                if (wire.getPin2() != null) {
-                    wire.getPin2().setLinked(false);
+        if (lastSelectedElement != null) {
+            elements.remove(lastSelectedElement);
+            List<Wire> deleteWires = new ArrayList<>();
+            for (Wire wire : wires) {
+                if (wire.getPin1() != null && wire.getPin1().getOwner() == lastSelectedElement) {
+                    if (wire.getPin2() != null) {
+                        wire.getPin2().setLinked(false);
+                    }
+                    deleteWires.add(wire);
                 }
-                deleteWires.add(wire);
-            }
-            if (wire.getPin2() != null && wire.getPin2().getOwner() == lastSelectedElement) {
-                if (wire.getPin1() != null) {
-                    wire.getPin1().setLinked(false);
+                if (wire.getPin2() != null && wire.getPin2().getOwner() == lastSelectedElement) {
+                    if (wire.getPin1() != null) {
+                        wire.getPin1().setLinked(false);
+                    }
+                    deleteWires.add(wire);
                 }
-                deleteWires.add(wire);
             }
+            wires.removeAll(deleteWires);
+            lastSelectedElement = null;
+        } else if (lastSelectedWire != null) {
+            lastSelectedWire.getPin1().setLinked(false);
+            lastSelectedWire.getPin2().setLinked(false);
+            wires.remove(lastSelectedWire);
+            lastSelectedWire = null;
         }
-        wires.removeAll(deleteWires);
-        lastSelectedElement = null;
     }
 
     @Override

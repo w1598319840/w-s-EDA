@@ -8,6 +8,7 @@ import cn.wjk.eda.view.panel.IndexPanel;
 import com.alibaba.fastjson2.JSON;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -134,7 +135,7 @@ public class IndexFrame extends JFrame implements ActionListener {
             }
             EDAEntity edaEntity = ByteArrayUtils.toObject(JSON.parseObject(stringBuilder.toString(), byte[].class),
                     EDAEntity.class);
-            if(edaEntity != null) {
+            if (edaEntity != null) {
                 IndexPanel.elements = edaEntity.getElements();
                 IndexPanel.wires = edaEntity.getWires();
             }
@@ -157,6 +158,7 @@ public class IndexFrame extends JFrame implements ActionListener {
         fileChooser.setCurrentDirectory(new File("."));
         fileChooser.setDialogTitle("select a file");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter(".eda File Only", "eda"));
         if (flag) {
             fileChooser.setApproveButtonText("保存");
         }

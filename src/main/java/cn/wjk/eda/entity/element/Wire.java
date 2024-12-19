@@ -25,7 +25,7 @@ public class Wire extends Element {
     private Polyline polyline;
 
     public Wire(Pin pin1, int mouseX, int mouseY) {
-        super(ElementType.WIRE, null, (pin1.getMetaX() + mouseX) / 2, (pin1.getMetaY() + mouseY) / 2);
+        super(ElementType.WIRE, Color.GREEN, (pin1.getMetaX() + mouseX) / 2, (pin1.getMetaY() + mouseY) / 2);
         this.pin1 = pin1;
         this.mouseX = mouseX;
         this.mouseY = mouseY;
@@ -58,7 +58,7 @@ public class Wire extends Element {
             yPoints[2] = this.metaY;
         }
 
-        return new Polyline(enabled ? Color.GREEN : Color.RED, xPoints, yPoints);
+        return new Polyline(enabled ? this.color : Color.RED, xPoints, yPoints);
     }
 
     @Override
