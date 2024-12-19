@@ -22,6 +22,8 @@ import java.util.List;
  */
 public class IndexPanel extends JPanel implements Runnable, MouseMotionListener, MouseListener, KeyListener {
     public static final String DEFAULT_FONT = "Times New Roman";
+    private static final int GRID_SIZE = 20;
+    private static final float GRID_WIDTH = 0.5f;
     public static List<Element> elements = new ArrayList<>();
     public static List<Wire> wires = new ArrayList<>();
     private Element selectedElement;
@@ -46,6 +48,29 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        paintElements(g);
+        paintGrid(g);
+    }
+
+    private void paintGrid(Graphics g) {
+        int width = getWidth();
+        int height = getHeight();
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.LIGHT_GRAY);
+        g2d.setStroke(new BasicStroke(GRID_WIDTH));
+
+        // 绘制垂直栅格线
+        for (int x = 0; x < width; x += GRID_SIZE) {
+            g2d.drawLine(x, 0, x, height);
+        }
+
+        // 绘制水平栅格线
+        for (int y = 0; y < height; y += GRID_SIZE) {
+            g2d.drawLine(0, y, width, y);
+        }
+    }
+
+    private void paintElements(Graphics g) {
         for (Element element : elements) {
             element.paint(g);
         }
