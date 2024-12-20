@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.awt.*;
 
 /**
- * @Package: cn.wjk.eda.element
+ * @Package: cn.wjk.entity.element
  * @ClassName: Text
  * @Version: 1.0
  * @Author: 温嘉凯

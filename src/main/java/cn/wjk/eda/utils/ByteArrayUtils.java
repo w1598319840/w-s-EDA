@@ -3,7 +3,7 @@ package cn.wjk.eda.utils;
 import java.io.*;
 
 /**
- * @Package: cn.wjk.eda.utils
+ * @Package: cn.wjk.entity.utils
  * @ClassName: ByteArrayUtils
  * @Version: 1.0
  * @Author: 温嘉凯

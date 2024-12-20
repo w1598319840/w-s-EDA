@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Package: cn.wjk.eda.view.panel
+ * @Package: cn.wjk.entity.view.panel
  * @ClassName: ElementLibraryPanel
  * @Version: 1.0
  * @Author: 温嘉凯

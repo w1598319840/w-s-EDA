@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.awt.*;
 
 /**
- * @Package: cn.wjk.eda.element
+ * @Package: cn.wjk.entity.element
  * @ClassName: Pin
  * @Version: 1.0
  * @Author: 温嘉凯

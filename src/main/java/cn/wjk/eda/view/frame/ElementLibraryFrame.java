@@ -5,7 +5,7 @@ import cn.wjk.eda.view.panel.ElementLibraryPanel;
 import javax.swing.*;
 
 /**
- * @Package: cn.wjk.eda.view.frame
+ * @Package: cn.wjk.entity.view.frame
  * @ClassName: ElementLibraryFrame
  * @Version: 1.0
  * @Author: 温嘉凯

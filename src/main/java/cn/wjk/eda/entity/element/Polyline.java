@@ -5,7 +5,7 @@ import cn.wjk.eda.enumeration.ElementType;
 import java.awt.*;
 
 /**
- * @Package: cn.wjk.eda.element
+ * @Package: cn.wjk.entity.element
  * @ClassName: Polyline
  * @Version: 1.0
  * @Author: 温嘉凯

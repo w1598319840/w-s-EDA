@@ -3,7 +3,7 @@ package cn.wjk.eda.utils;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
- * @Package: cn.wjk.eda.utils
+ * @Package: cn.wjk.entity.utils
  * @ClassName: GlobalIdUtils
  * @Version: 1.0
  * @Author: 温嘉凯

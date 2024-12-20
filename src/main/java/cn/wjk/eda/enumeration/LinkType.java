@@ -9,7 +9,7 @@ import java.awt.*;
 import static cn.wjk.eda.view.panel.IndexPanel.DEFAULT_FONT;
 
 /**
- * @Package: cn.wjk.eda.enumeration
+ * @Package: cn.wjk.entity.enumeration
  * @ClassName: LinkType
  * @Version: 1.0
  * @Author: 温嘉凯

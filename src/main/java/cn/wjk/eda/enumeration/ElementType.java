@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Package: cn.wjk.eda.enumeration
+ * @Package: cn.wjk.entity.enumeration
  * @ClassName: ElementType
  * @Version: 1.0
  * @Author: 温嘉凯

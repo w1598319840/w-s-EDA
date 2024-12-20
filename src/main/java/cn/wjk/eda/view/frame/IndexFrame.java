@@ -1,6 +1,6 @@
 package cn.wjk.eda.view.frame;
 
-import cn.wjk.eda.entity.eda.EDAEntity;
+import cn.wjk.eda.entity.entity.EDAEntity;
 import cn.wjk.eda.entity.element.Element;
 import cn.wjk.eda.utils.ByteArrayUtils;
 import cn.wjk.eda.utils.GlobalIdUtils;
@@ -18,7 +18,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * @Package: cn.wjk.eda.view
+ * @Package: cn.wjk.entity.view
  * @ClassName: IndexFrame
  * @Version: 1.0
  * @Author: 温嘉凯

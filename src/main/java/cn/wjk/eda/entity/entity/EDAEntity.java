@@ -1,4 +1,4 @@
-package cn.wjk.eda.entity.eda;
+package cn.wjk.eda.entity.entity;
 
 import cn.wjk.eda.entity.element.Element;
 import cn.wjk.eda.entity.element.Wire;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Package: cn.wjk.eda.entity.eda
+ * @Package: cn.wjk.entity.entity.entity
  * @ClassName: EDAEntity
  * @Version: 1.0
  * @Author: 温嘉凯

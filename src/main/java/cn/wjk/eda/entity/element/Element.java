@@ -10,7 +10,7 @@ import java.awt.*;
 import java.io.Serializable;
 
 /**
- * @Package: cn.wjk.eda.element
+ * @Package: cn.wjk.entity.element
  * @ClassName: Element
  * @Version: 1.0
  * @Author: 温嘉凯

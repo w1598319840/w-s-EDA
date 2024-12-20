@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Package: cn.wjk.eda.element
+ * @Package: cn.wjk.entity.element
  * @ClassName: ComplexElement
  * @Version: 1.0
  * @Author: 温嘉凯

@@ -3,7 +3,7 @@ package cn.wjk.eda;
 import cn.wjk.eda.view.frame.IndexFrame;
 
 /**
- * @Package: cn.wjk.eda.view
+ * @Package: cn.wjk.entity.view
  * @ClassName: Bootstrap
  * @Version: 1.0
  * @Author: 温嘉凯

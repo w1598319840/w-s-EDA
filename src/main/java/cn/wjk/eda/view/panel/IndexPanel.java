@@ -2,6 +2,7 @@ package cn.wjk.eda.view.panel;
 
 import cn.wjk.eda.entity.element.Rectangle;
 import cn.wjk.eda.entity.element.*;
+import cn.wjk.eda.entity.entity.Point;
 import cn.wjk.eda.enumeration.LinkType;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Package: cn.wjk.eda.view.panel
+ * @Package: cn.wjk.entity.view.panel
  * @ClassName: IndexPanel
  * @Version: 1.0
  * @Author: 温嘉凯
@@ -48,8 +49,8 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        paintUserElements(g);
         paintGrid(g);
+        paintUserElements(g);
     }
 
     private void paintGrid(Graphics g) {
@@ -83,10 +84,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     }
 
     private void handleNewElement() {
-        if (!ElementLibraryPanel.modified) {
-            return;
-        }
-        if (ElementLibraryPanel.elementType == null) {
+        if (!ElementLibraryPanel.modified || ElementLibraryPanel.elementType == null) {
             return;
         }
         try {
@@ -156,16 +154,25 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         if (selectedElement == null) {
             return;
         }
-        selectedElement.moveWithMetaData(x, y);
         if (!(selectedElement instanceof Wire)) {
-            selectedElement.moveWithMetaData(x, y);
+            Point point = gridAlign(x, y);
+            selectedElement.moveWithMetaData(point.getX(), point.getY());
             for (Wire wire : wires) {
                 if ((wire.getPin1().getOwner() == selectedElement && wire.getPin1().isLinked()) ||
                         (wire.getPin2().getOwner() == selectedElement && wire.getPin2().isLinked())) {
                     wire.move();
                 }
             }
+        } else {
+            selectedElement.moveWithMetaData(x, y);
         }
+    }
+
+    private Point gridAlign(int x, int y) {
+        int nearestX = (int) Math.round((double) x / GRID_SIZE) * GRID_SIZE;
+        int nearestY = (int) Math.round((double) y / GRID_SIZE) * GRID_SIZE;
+
+        return new Point(nearestX, nearestY);
     }
 
     @Override
@@ -222,7 +229,8 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         int startX = e.getX();
         int startY = e.getY();
         if (linkType == LinkType.DISABLED) {
-            select(startX, startY);
+            Point point = gridAlign(startX, startY);
+            select(point.getX(), point.getY());
         } else {
             link(startX, startY - 50);
         }
