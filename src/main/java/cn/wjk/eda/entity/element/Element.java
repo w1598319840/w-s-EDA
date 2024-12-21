@@ -3,7 +3,6 @@ package cn.wjk.eda.entity.element;
 import cn.wjk.eda.enumeration.ElementType;
 import cn.wjk.eda.utils.GlobalIdUtils;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.awt.*;
@@ -17,7 +16,6 @@ import java.io.Serializable;
  * @Datetime: 2024/12/10 21:36
  * @Description:
  */
-@Getter
 @NoArgsConstructor
 @Data
 public abstract class Element implements Serializable {
@@ -44,6 +42,10 @@ public abstract class Element implements Serializable {
     public Element(ElementType type, Color color) {
         this.type = type;
         this.color = color;
+    }
+
+    public Element(ElementType type) {
+        this.type = type;
     }
 
     public abstract void paint(Graphics g);

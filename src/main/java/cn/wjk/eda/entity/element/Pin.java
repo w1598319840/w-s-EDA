@@ -1,6 +1,7 @@
 package cn.wjk.eda.entity.element;
 
 import cn.wjk.eda.enumeration.ElementType;
+import com.alibaba.fastjson2.annotation.JSONField;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ import java.awt.*;
 @Getter
 public class Pin extends Element {
     private boolean linked;
+    @JSONField(serialize = false)
     private ComplexElement owner;
 
     public Pin(int x, int y, ComplexElement owner) {

@@ -24,4 +24,9 @@ public class Resistance extends ComplexElement {
         elementList.add(new Text(Color.BLACK, x + 30, y + 60, this.getType().getDesc(),
                 new Font("New Roman", Font.BOLD, 20)));
     }
+
+    @SuppressWarnings("unused")
+    public static Resistance getResistance() {
+        return loadComplexElement(ElementType.RESISTANCE, Resistance.class);
+    }
 }

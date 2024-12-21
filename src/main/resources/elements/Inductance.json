@@ -1,0 +1,248 @@
+{
+  "elementList": [
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 2,
+      "metaX": 100,
+      "metaY": 90,
+      "startX": 0,
+      "startY": 0,
+      "type": "ARC"
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 3,
+      "metaX": 120,
+      "metaY": 90,
+      "startX": 0,
+      "startY": 0,
+      "type": "ARC"
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 4,
+      "metaX": 140,
+      "metaY": 90,
+      "startX": 0,
+      "startY": 0,
+      "type": "ARC"
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 5,
+      "metaX": 160,
+      "metaY": 90,
+      "startX": 0,
+      "startY": 0,
+      "type": "ARC"
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 6,
+      "metaX": 80,
+      "metaY": 100,
+      "startX": 0,
+      "startY": 0,
+      "type": "LINE",
+      "x1": 80,
+      "x2": 100,
+      "y1": 100,
+      "y2": 100
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 7,
+      "metaX": 180,
+      "metaY": 100,
+      "startX": 0,
+      "startY": 0,
+      "type": "LINE",
+      "x1": 180,
+      "x2": 200,
+      "y1": 100,
+      "y2": 100
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "font": {
+        "PSName": "Dialog.bold",
+        "attributes": {
+    {}
+    :
+    "New Roman",
+    {}
+    :
+    20.0,
+    {}
+    :
+    2.0
+    },
+    "availableAttributes"
+    :
+    [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "bold"
+    :
+    true,
+    "family"
+    :
+    "Dialog",
+    "fontName"
+    :
+    "Dialog.bold",
+    "italic"
+    :
+    false,
+    "italicAngle"
+    :
+    0.0,
+    "missingGlyphCode"
+    :
+    0,
+    "name"
+    :
+    "New Roman",
+    "numGlyphs"
+    :
+    4547,
+    "plain"
+    :
+    false,
+    "size"
+    :
+    20,
+    "size2D"
+    :
+    20.0,
+    "style"
+    :
+    1,
+    "transform"
+    :
+    {
+      "determinant": 1.0,
+      "identity": true,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "shearX": 0.0,
+      "shearY": 0.0,
+      "translateX": 0.0,
+      "translateY": 0.0
+    },
+    "transformed"
+    :
+    false
+    },
+    "id"
+    :
+    10,
+    "metaX"
+    :
+    120,
+    "metaY"
+    :
+    120,
+    "startX"
+    :
+    0,
+    "startY"
+    :
+    0,
+    "text"
+    :
+    "电感",
+    "type"
+    :
+    "TEXT",
+    "x"
+    :
+    120,
+    "y"
+    :
+    120
+    }
+  ],
+  "id": 1,
+  "metaX": 100,
+  "metaY": 100,
+  "pinList": [
+    {
+      "id": 8,
+      "linked": false,
+      "metaX": 80,
+      "metaY": 100,
+      "startX": 0,
+      "startY": 0,
+      "type": "PIN"
+    },
+    {
+      "id": 9,
+      "linked": false,
+      "metaX": 200,
+      "metaY": 100,
+      "startX": 0,
+      "startY": 0,
+      "type": "PIN"
+    }
+  ],
+  "startX": 0,
+  "startY": 0,
+  "type": "INDUCTANCE"
+}

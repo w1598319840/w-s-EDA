@@ -1,0 +1,228 @@
+{
+  "elementList": [
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 2,
+      "metaX": 100,
+      "metaY": 100,
+      "startX": 0,
+      "startY": 0,
+      "type": "LINE",
+      "x1": 100,
+      "x2": 100,
+      "y1": 100,
+      "y2": 140
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 3,
+      "metaX": 120,
+      "metaY": 100,
+      "startX": 0,
+      "startY": 0,
+      "type": "LINE",
+      "x1": 120,
+      "x2": 120,
+      "y1": 100,
+      "y2": 140
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 4,
+      "metaX": 80,
+      "metaY": 120,
+      "startX": 0,
+      "startY": 0,
+      "type": "LINE",
+      "x1": 80,
+      "x2": 100,
+      "y1": 120,
+      "y2": 120
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "id": 5,
+      "metaX": 120,
+      "metaY": 120,
+      "startX": 0,
+      "startY": 0,
+      "type": "LINE",
+      "x1": 120,
+      "x2": 140,
+      "y1": 120,
+      "y2": 120
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "alpha": 255
+      },
+      "font": {
+        "PSName": "Dialog.bold",
+        "attributes": {
+    {}
+    :
+    "New Roman",
+    {}
+    :
+    2.0,
+    {}
+    :
+    20.0
+    },
+    "availableAttributes"
+    :
+    [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "bold"
+    :
+    true,
+    "family"
+    :
+    "Dialog",
+    "fontName"
+    :
+    "Dialog.bold",
+    "italic"
+    :
+    false,
+    "italicAngle"
+    :
+    0.0,
+    "missingGlyphCode"
+    :
+    0,
+    "name"
+    :
+    "New Roman",
+    "numGlyphs"
+    :
+    4547,
+    "plain"
+    :
+    false,
+    "size"
+    :
+    20,
+    "size2D"
+    :
+    20.0,
+    "style"
+    :
+    1,
+    "transform"
+    :
+    {
+      "determinant": 1.0,
+      "identity": true,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "shearX": 0.0,
+      "shearY": 0.0,
+      "translateX": 0.0,
+      "translateY": 0.0
+    },
+    "transformed"
+    :
+    false
+    },
+    "id"
+    :
+    8,
+    "metaX"
+    :
+    90,
+    "metaY"
+    :
+    160,
+    "startX"
+    :
+    0,
+    "startY"
+    :
+    0,
+    "text"
+    :
+    "电容",
+    "type"
+    :
+    "TEXT",
+    "x"
+    :
+    90,
+    "y"
+    :
+    160
+    }
+  ],
+  "id": 1,
+  "metaX": 100,
+  "metaY": 100,
+  "pinList": [
+    {
+      "id": 6,
+      "linked": false,
+      "metaX": 80,
+      "metaY": 120,
+      "startX": 0,
+      "startY": 0,
+      "type": "PIN"
+    },
+    {
+      "id": 7,
+      "linked": false,
+      "metaX": 140,
+      "metaY": 120,
+      "startX": 0,
+      "startY": 0,
+      "type": "PIN"
+    }
+  ],
+  "startX": 0,
+  "startY": 0,
+  "type": "CAPACITANCE"
+}

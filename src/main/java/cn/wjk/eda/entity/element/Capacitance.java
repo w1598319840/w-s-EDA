@@ -24,4 +24,9 @@ public class Capacitance extends ComplexElement {
         elementList.add(new Text(Color.BLACK, x - 10, y + 60, this.getType().getDesc(),
                 new Font("New Roman", Font.BOLD, 20)));
     }
+
+    @SuppressWarnings("unused")
+    public static Element getCapacitance() {
+        return loadComplexElement(ElementType.CAPACITANCE, Capacitance.class);
+    }
 }
