@@ -247,22 +247,53 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     }
 
     private void link(int x, int y) {
-        if (linkType == LinkType.DISABLED) {
-            return;
-        }
         Pin pin = selectTheNearestPin(x, y);
         if (pin == null) {
             return;
         }
-        pin.setLinked(true);
-        if (linkType == LinkType.NOT_SELECTED) {
-            selectedWire = new Wire(pin, x, y);
-            wires.add(selectedWire);
-            linkType = LinkType.SELECTED_ONE;
-        } else if (linkType == LinkType.SELECTED_ONE) {
-            selectedWire.enable(pin);
-            linkType = LinkType.DISABLED;
-            selectedWire = null;
+        if (pin.isLinked()) {
+            if (selectedWire != null && selectedWire.getPin1() != pin && selectedWire.getPin2() != pin) {
+                return;
+            }
+            pin.setLinked(false);
+            if (linkType == LinkType.SELECTED_ONE) {
+                pin.setLinked(false);
+                wires.remove(selectedWire);
+                selectedWire = null;
+                linkType = LinkType.DISABLED;
+            } else {
+                Pin otherPin = null;
+                for (Wire wire : wires) {
+                    if (wire.getPin1() == pin) {
+                        selectedWire = wire;
+                        otherPin = wire.getPin2();
+                        break;
+                    }
+                    if (wire.getPin2() == pin) {
+                        selectedWire = wire;
+                        otherPin = wire.getPin1();
+                        break;
+                    }
+                }
+                if (otherPin != null) {
+                    wires.remove(selectedWire);
+                    selectedWire = new Wire(otherPin, x, y);
+                    wires.add(selectedWire);
+                    pin.setLinked(false);
+                    linkType = LinkType.SELECTED_ONE;
+                }
+            }
+        } else {
+            pin.setLinked(true);
+            if (linkType == LinkType.NOT_SELECTED) {
+                selectedWire = new Wire(pin, x, y);
+                wires.add(selectedWire);
+                linkType = LinkType.SELECTED_ONE;
+            } else if (linkType == LinkType.SELECTED_ONE) {
+                selectedWire.enable(pin);
+                linkType = LinkType.DISABLED;
+                selectedWire = null;
+            }
         }
     }
 
@@ -271,9 +302,6 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
             if (element instanceof ComplexElement) {
                 List<Pin> pinList = ((ComplexElement) element).getPinList();
                 for (Pin pin : pinList) {
-                    if (pin.isLinked()) {
-                        continue;
-                    }
                     if (pin.selected(x, y)) {
                         return pin;
                     }
