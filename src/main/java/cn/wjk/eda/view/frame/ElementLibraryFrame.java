@@ -17,6 +17,8 @@ public class ElementLibraryFrame extends JFrame {
         super(title);
         setBounds(500, 200, 900, 600);
         initPanel();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(true);
     }
 
     private void initPanel() {
@@ -24,7 +26,5 @@ public class ElementLibraryFrame extends JFrame {
         elementLibraryPanel.setElementLibraryFrame(this);
         add(elementLibraryPanel);
         new Thread(elementLibraryPanel).start();
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setVisible(true);
     }
 }

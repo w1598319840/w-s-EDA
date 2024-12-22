@@ -4,6 +4,7 @@ import cn.wjk.eda.entity.element.Rectangle;
 import cn.wjk.eda.entity.element.*;
 import cn.wjk.eda.entity.entity.Point;
 import cn.wjk.eda.enumeration.LinkType;
+import cn.wjk.eda.view.frame.ElementInfoFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -186,6 +187,21 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 2) {
+            if (linkType != LinkType.DISABLED) {
+                return;
+            }
+            doubleClicked(e);
+        }
+    }
+
+    private void doubleClicked(MouseEvent e) {
+        selectedElement = selectTheNearestElement(e.getX(), e.getY());
+        if (!(selectedElement instanceof ComplexElement)) {
+            return;
+        }
+        new ElementInfoFrame(selectedElement.getName(), (ComplexElement) selectedElement);
+        selectedElement = null;
     }
 
     private Element selectTheNearestElement(int x, int y) {

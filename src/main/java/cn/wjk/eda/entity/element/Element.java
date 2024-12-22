@@ -20,6 +20,7 @@ import java.io.Serializable;
 @Data
 public abstract class Element implements Serializable {
     protected long id;
+    protected String name;
     protected int metaX, metaY, startX, startY;
     protected ElementType type;
     protected Color color;
@@ -30,18 +31,15 @@ public abstract class Element implements Serializable {
         this.metaX = metaX;
         this.metaY = metaY;
         this.id = GlobalIdUtils.generateGlobalId();
+        this.name = type.getDesc();
     }
 
     public Element(ElementType type, int metaX, int metaY) {
-        this.type = type;
-        this.metaX = metaX;
-        this.metaY = metaY;
-        this.id = GlobalIdUtils.generateGlobalId();
+        this(type, null, metaX, metaY);
     }
 
     public Element(ElementType type, Color color) {
-        this.type = type;
-        this.color = color;
+        this(type, color, 0, 0);
     }
 
     public Element(ElementType type) {
