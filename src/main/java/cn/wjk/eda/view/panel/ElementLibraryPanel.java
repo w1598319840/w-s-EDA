@@ -7,9 +7,13 @@ import lombok.Setter;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -55,9 +59,40 @@ public class ElementLibraryPanel extends JPanel implements Runnable, ActionListe
     }
 
     private void initComplexElementButton() {
-        initResistanceButton();
-        initCapacitanceButton();
-        initInductanceButton();
+//        initResistanceButton();
+//        initCapacitanceButton();
+//        initInductanceButton();
+        loadElements();
+    }
+
+    private void loadElements() {
+        URL url = this.getClass().getResource("/elements");
+        if (url == null) {
+            return;
+        }
+        File file = new File(url.getFile());
+        String[] elements = file.list();
+        if (elements == null) {
+            return;
+        }
+        List<String> elementNames = new ArrayList<>(elements.length);
+        for (String element : elements) {
+            String[] split = element.split("\\.");
+            if (split.length != 2) {
+                continue;
+            }
+            elementNames.add(split[0]);
+        }
+        generateElementButtons(elementNames);
+    }
+
+    private void generateElementButtons(List<String> elementNames) {
+        for (int i = 0; i < elementNames.size(); i++) {
+            JButton button = new JButton(elementNames.get(i));
+            button.setBounds(10, 10 + i * 40, 120, 30);
+            button.addActionListener(this);
+            add(button);
+        }
     }
 
     private void initBasicElementButton() {
