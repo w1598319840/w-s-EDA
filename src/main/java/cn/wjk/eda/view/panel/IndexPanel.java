@@ -370,32 +370,33 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
     }
 
     private void pressDelete() {
-        if (lastSelectedElement != null) {
-            if (lastSelectedElement instanceof Wire wire) {
-                wire.getPin1().setLinked(false);
-                wire.getPin2().setLinked(false);
-                wires.remove(lastSelectedElement);
-            } else {
-                elements.remove(lastSelectedElement);
-                List<Wire> deleteWires = new ArrayList<>();
-                for (Wire wire : wires) {
-                    if (wire.getPin1() != null && wire.getPin1().getOwner() == lastSelectedElement) {
-                        if (wire.getPin2() != null) {
-                            wire.getPin2().setLinked(false);
-                        }
-                        deleteWires.add(wire);
-                    }
-                    if (wire.getPin2() != null && wire.getPin2().getOwner() == lastSelectedElement) {
-                        if (wire.getPin1() != null) {
-                            wire.getPin1().setLinked(false);
-                        }
-                        deleteWires.add(wire);
-                    }
-                }
-                wires.removeAll(deleteWires);
-            }
-            lastSelectedElement = null;
+        if (lastSelectedElement == null) {
+            return;
         }
+        if (lastSelectedElement instanceof Wire wire) {
+            wire.getPin1().setLinked(false);
+            wire.getPin2().setLinked(false);
+            wires.remove(lastSelectedElement);
+        } else {
+            elements.remove(lastSelectedElement);
+            List<Wire> deleteWires = new ArrayList<>();
+            for (Wire wire : wires) {
+                if (wire.getPin1() != null && wire.getPin1().getOwner() == lastSelectedElement) {
+                    if (wire.getPin2() != null) {
+                        wire.getPin2().setLinked(false);
+                    }
+                    deleteWires.add(wire);
+                }
+                if (wire.getPin2() != null && wire.getPin2().getOwner() == lastSelectedElement) {
+                    if (wire.getPin1() != null) {
+                        wire.getPin1().setLinked(false);
+                    }
+                    deleteWires.add(wire);
+                }
+            }
+            wires.removeAll(deleteWires);
+        }
+        lastSelectedElement = null;
     }
 
     @Override
