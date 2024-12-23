@@ -169,7 +169,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         }
     }
 
-    private Point gridAlign(int x, int y) {
+    public static Point gridAlign(int x, int y) {
         int nearestX = (int) Math.round((double) x / GRID_SIZE) * GRID_SIZE;
         int nearestY = (int) Math.round((double) y / GRID_SIZE) * GRID_SIZE;
 
@@ -200,7 +200,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         if (!(selectedElement instanceof ComplexElement)) {
             return;
         }
-        new ElementInfoFrame(selectedElement.getName(), (ComplexElement) selectedElement);
+        new ElementInfoFrame(((ComplexElement) selectedElement).getName().getText(), (ComplexElement) selectedElement);
         selectedElement = null;
     }
 

@@ -15,14 +15,14 @@ import java.awt.*;
  */
 public class Resistance extends ComplexElement {
     public Resistance(int x, int y) {
-        super(ElementType.RESISTANCE, x, y);
+        super(ElementType.RESISTANCE, x, y,
+                new Text(Color.BLACK, x + 30, y + 60, ElementType.RESISTANCE.getDesc(),
+                        new Font("New Roman", Font.BOLD, 20)));
         elementList.add(new Rectangle(Color.YELLOW, x, y, 100, 40, true, Color.GREEN));
         elementList.add(new Line(Color.BLACK, x - 20, y + 20, x, y + 20));
         elementList.add(new Line(Color.BLACK, x + 100, y + 20, x + 100 + 20, y + 20));
         pinList.add(new Pin(x - 20, y + 20, this));
         pinList.add(new Pin(x + 100 + 20, y + 20, this));
-        elementList.add(new Text(Color.BLACK, x + 30, y + 60, this.getType().getDesc(),
-                new Font("New Roman", Font.BOLD, 20)));
     }
 
     @SuppressWarnings("unused")

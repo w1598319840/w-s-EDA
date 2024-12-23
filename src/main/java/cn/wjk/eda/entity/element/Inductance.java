@@ -14,7 +14,9 @@ import java.awt.*;
  */
 public class Inductance extends ComplexElement {
     public Inductance(int x, int y) {
-        super(ElementType.INDUCTANCE, x, y);
+        super(ElementType.INDUCTANCE, x, y,
+                new Text(Color.BLACK, x + 20, y + 20, ElementType.INDUCTANCE.getDesc(),
+                        new Font("New Roman", Font.BOLD, 20)));
         elementList.add(new Arc(Color.BLACK, x, y - 10, 20, 20, 0, 180));
         elementList.add(new Arc(Color.BLACK, x + 20, y - 10, 20, 20, 0, 180));
         elementList.add(new Arc(Color.BLACK, x + 40, y - 10, 20, 20, 0, 180));
@@ -23,8 +25,6 @@ public class Inductance extends ComplexElement {
         elementList.add(new Line(Color.BLACK, x + 80, y, x + 100, y));
         pinList.add(new Pin(x - 20, y, this));
         pinList.add(new Pin(x + 100, y, this));
-        elementList.add(new Text(Color.BLACK, x + 20, y + 20, this.getType().getDesc(),
-                new Font("New Roman", Font.BOLD, 20)));
     }
 
     @SuppressWarnings("unused")

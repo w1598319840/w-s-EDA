@@ -12,7 +12,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Package: cn.wjk.entity.element
@@ -27,9 +29,12 @@ import java.util.List;
 public class ComplexElement extends Element {
     protected final List<Element> elementList = new ArrayList<>();
     protected final List<Pin> pinList = new ArrayList<>();
+    protected final Map<String, String> info = new HashMap<>();
+    protected final Text name;
 
-    public ComplexElement(ElementType type, int metaX, int metaY) {
+    public ComplexElement(ElementType type, int metaX, int metaY, Text name) {
         super(type, metaX, metaY);
+        this.name = name;
     }
 
     @Override
@@ -40,6 +45,7 @@ public class ComplexElement extends Element {
         for (Pin pin : pinList) {
             pin.paint(g);
         }
+        name.paint(g);
     }
 
     @Override
@@ -54,6 +60,9 @@ public class ComplexElement extends Element {
             pin.startY = startY;
             pin.move(currentX, currentY);
         }
+        name.startX = startX;
+        name.startY = startY;
+        name.move(currentX, currentY);
     }
 
     protected static <T extends ComplexElement> T loadComplexElement(ElementType type, Class<T> clazz) {
@@ -82,5 +91,13 @@ public class ComplexElement extends Element {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void refresh() {
+        move(metaX, metaY);
+    }
+
+    public void setName(String text) {
+        this.name.setText(text);
     }
 }

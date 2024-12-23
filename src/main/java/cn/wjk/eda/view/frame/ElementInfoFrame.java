@@ -23,7 +23,7 @@ public class ElementInfoFrame extends JFrame {
     }
 
     private void initPanel(ComplexElement complexElement) {
-        ElementInfoPanel elementInfoPanel = new ElementInfoPanel(complexElement);
+        ElementInfoPanel elementInfoPanel = new ElementInfoPanel(complexElement, this);
         add(elementInfoPanel);
         new Thread(elementInfoPanel).start();
     }

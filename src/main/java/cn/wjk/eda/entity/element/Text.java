@@ -1,7 +1,8 @@
 package cn.wjk.eda.entity.element;
 
 import cn.wjk.eda.enumeration.ElementType;
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.awt.*;
 
@@ -13,11 +14,12 @@ import java.awt.*;
  * @Datetime: 2024/12/11 12:38
  * @Description:
  */
-@Getter
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class Text extends Element {
     private int x, y;
-    private final String text;
-    private final Font font;
+    private String text;
+    private Font font;
 
     public Text(Color color, int x, int y, String text, Font font) {
         super(ElementType.TEXT, color, x, y);
