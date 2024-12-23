@@ -37,6 +37,7 @@ public class ElementInfoPanel extends JPanel implements Runnable, ActionListener
         this.complexElement = complexElement;
         this.frame = frame;
         setLayout(null);
+        loadOtherAttrs();
         loadElementAttribute();
         initButton();
         complexElement.setStartX(complexElement.getMetaX());
@@ -59,12 +60,24 @@ public class ElementInfoPanel extends JPanel implements Runnable, ActionListener
         refreshAddButton();
     }
 
-//    private void loadOtherAttrs() {
-//
-//    }
+    private void loadOtherAttrs() {
+        Map<String, String> info = complexElement.getInfo();
+        for (Map.Entry<String, String> entry : info.entrySet()) {
+            JTextField key = new JTextField();
+            JTextField value = new JTextField();
+            key.setText(entry.getKey());
+            value.setText(entry.getValue());
+            otherAttrsMap.put(key, value);
+            add(key);
+            add(value);
+            count++;
+            key.setBounds(10, 170 + count * 30, 60, 30);
+            value.setBounds(80, 170 + count * 30, 100, 30);
+        }
+    }
 
     private void refreshAddButton() {
-        addButton.setBounds(10, 170 + ++count * 30, 45, 20);
+        addButton.setBounds(10, 170 + ++count * 30, 45, 30);
     }
 
     private void loadPinAttrs() {
@@ -159,8 +172,8 @@ public class ElementInfoPanel extends JPanel implements Runnable, ActionListener
     private void handleAdd() {
         JTextField key = new JTextField();
         JTextField value = new JTextField();
-        key.setBounds(10, 160 + count * 30, 60, 30);
-        value.setBounds(80, 160 + count * 30, 100, 30);
+        key.setBounds(10, 170 + count * 30, 60, 30);
+        value.setBounds(80, 170 + count * 30, 100, 30);
         add(key);
         add(value);
         otherAttrsMap.put(key, value);
