@@ -88,4 +88,8 @@ public class Wire extends Element {
         this.metaY = (pin1.getMetaY() + pin2.getMetaY()) / 2;
         this.polyline = generatePolyLine();
     }
+
+    public void refresh() {
+        this.move(metaX, metaY);
+    }
 }

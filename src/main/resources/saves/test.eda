@@ -1,0 +1,873 @@
+{
+  "elements": [
+    {
+      "elementList": [
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 6,
+          "metaX": 100,
+          "metaY": 100,
+          "startX": 420,
+          "startY": 420,
+          "type": "LINE",
+          "x1": 400,
+          "x2": 400,
+          "y1": 340,
+          "y2": 380
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 7,
+          "metaX": 120,
+          "metaY": 100,
+          "startX": 420,
+          "startY": 420,
+          "type": "LINE",
+          "x1": 420,
+          "x2": 420,
+          "y1": 340,
+          "y2": 380
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 8,
+          "metaX": 80,
+          "metaY": 120,
+          "startX": 420,
+          "startY": 420,
+          "type": "LINE",
+          "x1": 380,
+          "x2": 400,
+          "y1": 360,
+          "y2": 360
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 9,
+          "metaX": 120,
+          "metaY": 120,
+          "startX": 420,
+          "startY": 420,
+          "type": "LINE",
+          "x1": 420,
+          "x2": 440,
+          "y1": 360,
+          "y2": 360
+        }
+      ],
+      "id": 5,
+      "info": {},
+      "metaX": 400,
+      "metaY": 340,
+      "name": {
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "alpha": 255
+        },
+        "font": {
+          "PSName": "Dialog.bold",
+          "attributes": {
+    {}
+    :
+    2.0,
+    {}
+    :
+    "New Roman",
+    {}
+    :
+    20.0
+    },
+    "availableAttributes"
+    :
+    [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "bold"
+    :
+    true,
+    "family"
+    :
+    "Dialog",
+    "fontName"
+    :
+    "Dialog.bold",
+    "italic"
+    :
+    false,
+    "italicAngle"
+    :
+    0.0,
+    "missingGlyphCode"
+    :
+    0,
+    "name"
+    :
+    "New Roman",
+    "numGlyphs"
+    :
+    4547,
+    "plain"
+    :
+    false,
+    "size"
+    :
+    20,
+    "size2D"
+    :
+    20.0,
+    "style"
+    :
+    1,
+    "transform"
+    :
+    {
+      "determinant": 1.0,
+      "identity": true,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "shearX": 0.0,
+      "shearY": 0.0,
+      "translateX": 0.0,
+      "translateY": 0.0
+    },
+    "transformed"
+    :
+    false
+    },
+    "id"
+    :
+    4,
+    "metaX"
+    :
+    90,
+    "metaY"
+    :
+    160,
+    "startX"
+    :
+    420,
+    "startY"
+    :
+    420,
+    "text"
+    :
+    "电容",
+    "type"
+    :
+    "TEXT",
+    "x"
+    :
+    390,
+    "y"
+    :
+    400
+    },
+    "pinList"
+    :
+    [
+      {
+        "id": 10,
+        "linked": true,
+        "metaX": 380,
+        "metaY": 360,
+        "startX": 420,
+        "startY": 420,
+        "type": "PIN"
+      },
+      {
+        "id": 11,
+        "linked": true,
+        "metaX": 440,
+        "metaY": 360,
+        "startX": 420,
+        "startY": 420,
+        "type": "PIN"
+      }
+    ],
+    "startX"
+    :
+    420,
+    "startY"
+    :
+    420,
+    "type"
+    :
+    "CAPACITANCE"
+    },
+    {
+      "elementList": [
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 14,
+          "metaX": 100,
+          "metaY": 90,
+          "startX": 180,
+          "startY": 380,
+          "type": "ARC"
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 15,
+          "metaX": 120,
+          "metaY": 90,
+          "startX": 180,
+          "startY": 380,
+          "type": "ARC"
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 16,
+          "metaX": 140,
+          "metaY": 90,
+          "startX": 180,
+          "startY": 380,
+          "type": "ARC"
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 17,
+          "metaX": 160,
+          "metaY": 90,
+          "startX": 180,
+          "startY": 380,
+          "type": "ARC"
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 18,
+          "metaX": 80,
+          "metaY": 100,
+          "startX": 180,
+          "startY": 380,
+          "type": "LINE",
+          "x1": 100,
+          "x2": 120,
+          "y1": 320,
+          "y2": 320
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 19,
+          "metaX": 180,
+          "metaY": 100,
+          "startX": 180,
+          "startY": 380,
+          "type": "LINE",
+          "x1": 200,
+          "x2": 220,
+          "y1": 320,
+          "y2": 320
+        }
+      ],
+      "id": 13,
+      "info": {},
+      "metaX": 120,
+      "metaY": 320,
+      "name": {
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "alpha": 255
+        },
+        "font": {
+          "PSName": "Dialog.bold",
+          "attributes": {
+    {}
+    :
+    2.0,
+    {}
+    :
+    "New Roman",
+    {}
+    :
+    20.0
+    },
+    "availableAttributes"
+    :
+    [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "bold"
+    :
+    true,
+    "family"
+    :
+    "Dialog",
+    "fontName"
+    :
+    "Dialog.bold",
+    "italic"
+    :
+    false,
+    "italicAngle"
+    :
+    0.0,
+    "missingGlyphCode"
+    :
+    0,
+    "name"
+    :
+    "New Roman",
+    "numGlyphs"
+    :
+    4547,
+    "plain"
+    :
+    false,
+    "size"
+    :
+    20,
+    "size2D"
+    :
+    20.0,
+    "style"
+    :
+    1,
+    "transform"
+    :
+    {
+      "determinant": 1.0,
+      "identity": true,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "shearX": 0.0,
+      "shearY": 0.0,
+      "translateX": 0.0,
+      "translateY": 0.0
+    },
+    "transformed"
+    :
+    false
+    },
+    "id"
+    :
+    12,
+    "metaX"
+    :
+    120,
+    "metaY"
+    :
+    120,
+    "startX"
+    :
+    180,
+    "startY"
+    :
+    380,
+    "text"
+    :
+    "电感",
+    "type"
+    :
+    "TEXT",
+    "x"
+    :
+    140,
+    "y"
+    :
+    340
+    },
+    "pinList"
+    :
+    [
+      {
+        "id": 20,
+        "linked": true,
+        "metaX": 100,
+        "metaY": 320,
+        "startX": 180,
+        "startY": 380,
+        "type": "PIN"
+      },
+      {
+        "id": 21,
+        "linked": true,
+        "metaX": 220,
+        "metaY": 320,
+        "startX": 180,
+        "startY": 380,
+        "type": "PIN"
+      }
+    ],
+    "startX"
+    :
+    180,
+    "startY"
+    :
+    380,
+    "type"
+    :
+    "INDUCTANCE"
+    },
+    {
+      "elementList": [
+        {
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 0,
+            "alpha": 255
+          },
+          "frame": true,
+          "frameColor": {
+            "r": 0,
+            "g": 255,
+            "b": 0,
+            "alpha": 255
+          },
+          "height": 40,
+          "id": 24,
+          "metaX": 100,
+          "metaY": 100,
+          "startX": 260,
+          "startY": 180,
+          "type": "RECTANGLE",
+          "width": 100,
+          "x": 220,
+          "y": 100
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 25,
+          "metaX": 80,
+          "metaY": 120,
+          "startX": 260,
+          "startY": 180,
+          "type": "LINE",
+          "x1": 200,
+          "x2": 220,
+          "y1": 120,
+          "y2": 120
+        },
+        {
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "alpha": 255
+          },
+          "id": 26,
+          "metaX": 200,
+          "metaY": 120,
+          "startX": 260,
+          "startY": 180,
+          "type": "LINE",
+          "x1": 320,
+          "x2": 340,
+          "y1": 120,
+          "y2": 120
+        }
+      ],
+      "id": 23,
+      "info": {},
+      "metaX": 220,
+      "metaY": 100,
+      "name": {
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "alpha": 255
+        },
+        "font": {
+          "PSName": "Dialog.bold",
+          "attributes": {
+    {}
+    :
+    2.0,
+    {}
+    :
+    "New Roman",
+    {}
+    :
+    20.0
+    },
+    "availableAttributes"
+    :
+    [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "bold"
+    :
+    true,
+    "family"
+    :
+    "Dialog",
+    "fontName"
+    :
+    "Dialog.bold",
+    "italic"
+    :
+    false,
+    "italicAngle"
+    :
+    0.0,
+    "missingGlyphCode"
+    :
+    0,
+    "name"
+    :
+    "New Roman",
+    "numGlyphs"
+    :
+    4547,
+    "plain"
+    :
+    false,
+    "size"
+    :
+    20,
+    "size2D"
+    :
+    20.0,
+    "style"
+    :
+    1,
+    "transform"
+    :
+    {
+      "determinant": 1.0,
+      "identity": true,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "shearX": 0.0,
+      "shearY": 0.0,
+      "translateX": 0.0,
+      "translateY": 0.0
+    },
+    "transformed"
+    :
+    false
+    },
+    "id"
+    :
+    22,
+    "metaX"
+    :
+    130,
+    "metaY"
+    :
+    160,
+    "startX"
+    :
+    260,
+    "startY"
+    :
+    180,
+    "text"
+    :
+    "电阻",
+    "type"
+    :
+    "TEXT",
+    "x"
+    :
+    250,
+    "y"
+    :
+    160
+    },
+    "pinList"
+    :
+    [
+      {
+        "id": 27,
+        "linked": true,
+        "metaX": 200,
+        "metaY": 120,
+        "startX": 260,
+        "startY": 180,
+        "type": "PIN"
+      },
+      {
+        "id": 28,
+        "linked": true,
+        "metaX": 340,
+        "metaY": 120,
+        "startX": 260,
+        "startY": 180,
+        "type": "PIN"
+      }
+    ],
+    "startX"
+    :
+    260,
+    "startY"
+    :
+    180,
+    "type"
+    :
+    "RESISTANCE"
+    }
+  ],
+  "wires": [
+    {
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 0,
+        "alpha": 255
+      },
+      "enabled": true,
+      "id": 29,
+      "metaX": 150,
+      "metaY": 220,
+      "mouseX": 49,
+      "mouseY": 263,
+      "pin1": {
+        "id": 27,
+        "linked": true,
+        "metaX": 200,
+        "metaY": 120,
+        "startX": 260,
+        "startY": 180,
+        "type": "PIN"
+      },
+      "pin2": {
+        "id": 20,
+        "linked": true,
+        "metaX": 100,
+        "metaY": 320,
+        "startX": 180,
+        "startY": 380,
+        "type": "PIN"
+      },
+      "polyline": {
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "alpha": 255
+        },
+        "id": 1223,
+        "metaX": 200,
+        "metaY": 120,
+        "startX": 0,
+        "startY": 0,
+        "type": "POLYLINE"
+      },
+      "startX": 0,
+      "startY": 0,
+      "type": "WIRE"
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 0,
+        "alpha": 255
+      },
+      "enabled": true,
+      "id": 319,
+      "metaX": 300,
+      "metaY": 340,
+      "mouseX": 301,
+      "mouseY": 323,
+      "pin1": {
+        "id": 21,
+        "linked": true,
+        "metaX": 220,
+        "metaY": 320,
+        "startX": 180,
+        "startY": 380,
+        "type": "PIN"
+      },
+      "pin2": {
+        "id": 10,
+        "linked": true,
+        "metaX": 380,
+        "metaY": 360,
+        "startX": 420,
+        "startY": 420,
+        "type": "PIN"
+      },
+      "polyline": {
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "alpha": 255
+        },
+        "id": 1224,
+        "metaX": 220,
+        "metaY": 320,
+        "startX": 0,
+        "startY": 0,
+        "type": "POLYLINE"
+      },
+      "startX": 0,
+      "startY": 0,
+      "type": "WIRE"
+    },
+    {
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 0,
+        "alpha": 255
+      },
+      "enabled": true,
+      "id": 409,
+      "metaX": 390,
+      "metaY": 240,
+      "mouseX": 323,
+      "mouseY": 129,
+      "pin1": {
+        "id": 11,
+        "linked": true,
+        "metaX": 440,
+        "metaY": 360,
+        "startX": 420,
+        "startY": 420,
+        "type": "PIN"
+      },
+      "pin2": {
+        "id": 28,
+        "linked": true,
+        "metaX": 340,
+        "metaY": 120,
+        "startX": 260,
+        "startY": 180,
+        "type": "PIN"
+      },
+      "polyline": {
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "alpha": 255
+        },
+        "id": 1090,
+        "metaX": 440,
+        "metaY": 360,
+        "startX": 0,
+        "startY": 0,
+        "type": "POLYLINE"
+      },
+      "startX": 0,
+      "startY": 0,
+      "type": "WIRE"
+    }
+  ]
+}

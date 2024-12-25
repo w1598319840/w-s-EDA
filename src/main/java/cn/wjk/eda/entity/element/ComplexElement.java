@@ -65,7 +65,7 @@ public class ComplexElement extends Element {
         name.move(currentX, currentY);
     }
 
-    protected static <T extends ComplexElement> T loadComplexElement(ElementType type, Class<T> clazz) {
+    public static <T extends ComplexElement> T loadComplexElement(ElementType type, Class<T> clazz) {
         URL url = ComplexElement.class.getResource("/");
         if (url == null) {
             return null;

@@ -1,7 +1,7 @@
 package cn.wjk.eda.view.frame;
 
-import cn.wjk.eda.entity.entity.EDAEntity;
 import cn.wjk.eda.entity.element.Element;
+import cn.wjk.eda.entity.entity.EDAEntity;
 import cn.wjk.eda.utils.ByteArrayUtils;
 import cn.wjk.eda.utils.GlobalIdUtils;
 import cn.wjk.eda.view.panel.IndexPanel;
@@ -107,6 +107,7 @@ public class IndexFrame extends JFrame implements ActionListener {
         }
         String elementsString = JSON.toJSONString(ByteArrayUtils.toByteArray(
                 new EDAEntity(IndexPanel.elements, IndexPanel.wires)));
+//        String elementsString = JSON.toJSONString(new EDAEntity(IndexPanel.elements, IndexPanel.wires));
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(elementsString);
         } catch (IOException e) {

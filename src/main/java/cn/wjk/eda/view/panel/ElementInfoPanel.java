@@ -2,6 +2,7 @@ package cn.wjk.eda.view.panel;
 
 import cn.wjk.eda.entity.element.ComplexElement;
 import cn.wjk.eda.entity.element.Pin;
+import cn.wjk.eda.entity.element.Wire;
 import cn.wjk.eda.entity.entity.Point;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -166,6 +167,11 @@ public class ElementInfoPanel extends JPanel implements Runnable, ActionListener
         complexElement.setMetaY(point.getY());
 
         complexElement.refresh();
+        for (Wire wire : IndexPanel.wires) {
+            if (wire.getPin1().getOwner() == complexElement || wire.getPin2().getOwner() == complexElement) {
+                wire.refresh();
+            }
+        }
         this.frame.dispose();
     }
 
