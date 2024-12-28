@@ -14,8 +14,8 @@ import javax.swing.*;
  * @Description:
  */
 public class ElementInfoFrame extends JFrame {
-    public ElementInfoFrame(String title, ComplexElement complexElement) {
-        super(title);
+    public ElementInfoFrame(ComplexElement complexElement) {
+        super(complexElement.getName().getText());
         setBounds(500, 200, 900, 600);
         initPanel(complexElement);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

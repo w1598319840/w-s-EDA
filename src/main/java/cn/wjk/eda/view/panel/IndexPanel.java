@@ -200,7 +200,7 @@ public class IndexPanel extends JPanel implements Runnable, MouseMotionListener,
         if (!(selectedElement instanceof ComplexElement)) {
             return;
         }
-        new ElementInfoFrame(((ComplexElement) selectedElement).getName().getText(), (ComplexElement) selectedElement);
+        new ElementInfoFrame((ComplexElement) selectedElement);
         selectedElement = null;
     }
 
